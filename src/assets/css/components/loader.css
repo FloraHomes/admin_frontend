@@ -1,0 +1,58 @@
+.page_processing_modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: rgba(59, 59, 59, 0.74);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 199760009 !important;
+    transition: 400ms ease;
+  }
+  .page_processing_modal p {
+    position: fixed !important;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 140px !important;
+    /* margin-bottom: 19px; */
+    /* margin-left: 14px; */
+    color: #ffffff !important;
+    text-align: center;
+  }
+  
+  .loading-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .loader {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #541484;
+    border-top-color: #448414;
+    border-bottom-color: #541484;
+    border-radius: 50%;
+    animation: rotateBox 5s linear infinite;
+  }
+  
+  @keyframes rotateBox {
+    0% {
+      transform: scale(1) rotate(360deg);
+    }
+    50% {
+      transform: scale(0.8) rotate(-360deg);
+    }
+    100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+  }
+  
