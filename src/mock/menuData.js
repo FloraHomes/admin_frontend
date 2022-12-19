@@ -22,5 +22,19 @@ const menuData = {
       },
   
     ],
+    admin: [
+      {
+        icon: "Home",
+        title: "Dashboad",
+        pathname: "/dashboard",
+      },
+      {
+        icon: "FileText",
+        title: "Blog",
+        pathname: "/blog",
+      },
+    
+  
+    ],
   };
   export default menuData;

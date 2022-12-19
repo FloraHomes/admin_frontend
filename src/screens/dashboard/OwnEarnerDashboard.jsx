@@ -12,17 +12,17 @@ import ReportMap from "@/components/report-map/Main";
 import { useRef, useState } from "react";
 import { DatePicker } from "react-responsive-datepicker";
 import { useSelector, useDispatch } from "react-redux";
-import { setRefferalLinkModal } from "../redux/slices/modalSlice";
-import { fetchPaymentSummary } from "../redux/slices/PaymentSummarySlice";
-import { amountFormat, dateInWord, simpleDateString } from "../utils/format";
-import { fetchGoal } from "../redux/slices/goalSlice";
-import { fetchReferralSummary } from "../redux/slices/referralSummarySlice";
+import { setRefferalLinkModal } from "../../redux/slices/modalSlice";
+import { fetchPaymentSummary } from "../../redux/slices/PaymentSummarySlice";
+import { amountFormat, dateInWord, simpleDateString } from "../../utils/format";
+import { fetchGoal } from "../../redux/slices/goalSlice";
+import { fetchReferralSummary } from "../../redux/slices/referralSummarySlice";
 import { useNavigate } from "react-router-dom";
-import PaymentTable from "../layouts/OwnEarner/PaymentTable";
-import { priceChanges2 } from "../mock/priceChanges";
+import PaymentTable from "../../layouts/OwnEarner/PaymentTable";
+import { priceChanges2 } from "../../mock/priceChanges";
 
 
-const Dashboard = () => {
+const OwnEarnerDashboard = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state?.user?.user);
@@ -327,4 +327,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default OwnEarnerDashboard;

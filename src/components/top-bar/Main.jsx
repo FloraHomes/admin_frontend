@@ -15,27 +15,18 @@ import { faker as $f } from "@/utils";
 import * as $_ from "lodash";
 import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../../redux/slices/userSlice";
-import profilePlaceholder from "../../assets/images/placeholders/default.png"
+import profilePlaceholder from "../../assets/images/placeholders/default.png";
 import { setRefferalLinkModal } from "../../redux/slices/modalSlice";
 import storeInit from "../../redux/store";
 
 function Main(props) {
-  const [searchDropdown, setSearchDropdown] = useState(false);
-  const showSearchDropdown = () => {
-    setSearchDropdown(true);
-  };
-  const hideSearchDropdown = () => {
-    setSearchDropdown(false);
-  };
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signOut = (e) => {
     e.preventDefault();
     // dispatch(removeUser());
-    storeInit.persistor.purge()
+    storeInit.persistor.purge();
     navigate("/");
   };
 
@@ -84,7 +75,9 @@ function Main(props) {
             <DropdownMenu className="w-56">
               <DropdownContent className="bg-primary/80 before:block before:absolute before:bg-black before:inset-0 before:rounded-md before:z-[-1] text-white">
                 <DropdownHeader tag="div" className="!font-normal">
-                  <div className="font-medium">{user?.firstName} {user?.lastName}</div>
+                  <div className="font-medium">
+                    {user?.firstName} {user?.lastName}
+                  </div>
                   <div className="text-xs text-white/60 mt-0.5 dark:text-slate-500">
                     {user?.role}
                   </div>
@@ -94,11 +87,19 @@ function Main(props) {
                   <Lucide icon="User" className="w-4 h-4 mr-2" /> Profile
                 </DropdownItem> */}
                 <DropdownItem className="hover:bg-white/5">
-                  <Lucide icon="Lock" className="w-4 h-4 mr-2" /> Change Password
+                  <Lucide icon="Lock" className="w-4 h-4 mr-2" /> Change
+                  Password
                 </DropdownItem>
-                <DropdownItem className="hover:bg-white/5" onClick={() => dispatch(setRefferalLinkModal({status: true}))}>
-                  <Lucide icon="Link" className="w-4 h-4 mr-2" /> Referal Link
-                </DropdownItem>
+                {user?.role === "ownEarner" && (
+                  <DropdownItem
+                    className="hover:bg-white/5"
+                    onClick={() =>
+                      dispatch(setRefferalLinkModal({ status: true }))
+                    }
+                  >
+                    <Lucide icon="Link" className="w-4 h-4 mr-2" /> Referal Link
+                  </DropdownItem>
+                )}
                 <DropdownDivider className="border-white/[0.08]" />
                 <DropdownItem className="hover:bg-white/5" onClick={signOut}>
                   <Lucide icon="ToggleRight" className="w-4 h-4 mr-2" /> Logout
