@@ -6,7 +6,13 @@ import Router from "./router";
 
 function App() {
   return (
-   <p>Coooool</p>
+    <RecoilRoot>
+           <IndexModal/>
+      <BrowserRouter>
+        <Router />
+        <ScrollToTop />
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 

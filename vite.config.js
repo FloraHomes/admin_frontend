@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: process.env.PORT || 6000,
+    port: import.meta.env?.PORT || 6000,
   },
 
 });
