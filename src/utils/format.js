@@ -1,4 +1,4 @@
-import Resizer from "react-image-file-resizer";
+import Resizer from "./resizer";
 import moment from 'moment';
 
 export const amountFormat = (num) => {
