@@ -2,10 +2,10 @@
   "name": "icewall-react",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix florahomes_admin_frontend_new && npm run build --prefix florahomes_admin_frontend_new"
+    "preview": "vite preview"
+    
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-balloon": "^29.1.0",
