@@ -4,7 +4,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix florahomes_admin_frontend_new && npm run build --prefix florahomes_admin_frontend_new"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-balloon": "^29.1.0",
