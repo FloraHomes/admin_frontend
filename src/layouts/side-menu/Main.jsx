@@ -18,11 +18,11 @@ import { useSelector } from "react-redux";
 
 function Main({children}) {
   const sideMenuStore = useRecoilValue(useSideMenuStore);
-  location = useLocation
+  // location = useLocation
 
   useEffect(() => {
     dom("body").removeClass("error-page").removeClass("login").addClass("main");
-  }, [sideMenuStore, location.pathname]);
+  }, [sideMenuStore]);
 
   const navigate = useNavigate();
   const role = useSelector((state) => state?.user?.user?.role);
