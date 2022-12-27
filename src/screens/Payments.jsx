@@ -16,7 +16,8 @@ const Payments = () => {
   const data = useSelector((state) => state.payments);
 
   const payments = data?.payments?.data?.data;
-  // console.log(payments);
+
+  console.log(payments?.length);
 
   return (
     <>
@@ -42,11 +43,11 @@ const Payments = () => {
                 </th>
                 <th className="text-center whitespace-nowrap">Amount Paid</th>
                 <th className="text-center whitespace-nowrap">Property Name</th>
-                <th className="text-center whitespace-nowrap">ACTIONS</th>
+             
               </tr>
             </thead>
             <tbody>
-              {data?.loading && payments?.length < 1 ? (
+              {data?.loading && payments === undefined ? (
                  <td className="text-center" colSpan="6">
                  <TableLoader/>
                 </td>
@@ -60,7 +61,7 @@ const Payments = () => {
                   <td className="text-center">{amountFormat(pay?.purchasedUnit)}</td>
                   <td className="text-center">&#8358;{amountFormat(pay?.amountPaid)}</td>
                   <td className="text-center">{pay?.property?.name}</td>
-                  <td className="text-center"></td>
+                
                  
                 </tr>
                  ))

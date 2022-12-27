@@ -35,7 +35,7 @@ const RefferalLinkModal = () => {
 
             <h4 className="text-success">Your Refferal Link</h4>
             <p style={{ lineHeight: "30px" }}>
-             {`http://localhost:3000/own-earner-register/${user?.firstName}/${user?._id}`}
+             {`${SITE_URL}/own-earner-register/${user?.firstName}/${user?._id}`}
             </p>
 
             <div className="alert-modal-button mt-3">

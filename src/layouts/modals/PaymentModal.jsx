@@ -28,12 +28,16 @@ const PaymentModal = () => {
     );
   };
 
+
+
   useEffect(() => {
     dispatch(fetchProperty({id: user?.property}))
   }, []);
 
   const data = useSelector((state) => state.property);
   const property = data?.property?.data;
+
+  console.log(property);
 
   const config = {
     reference: new Date().getTime().toString(),
@@ -77,6 +81,8 @@ const PaymentModal = () => {
     );
     res?.status && dispatch(fetchCustomerPayments());
   };
+
+
 
   return (
     <Modal show={modal.status} backdrop="static" onHidden={closeModal}>

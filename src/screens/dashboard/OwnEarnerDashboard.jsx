@@ -288,7 +288,7 @@ const OwnEarnerDashboard = () => {
             <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
               <div className="intro-x flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">
-                {goal?.property?.name} Price Change
+                {goal?.property?.name} Recent Price
                 </h2>
               </div>
               <div className="mt-5 relative before:block before:absolute before:w-px before:h-[85%] before:bg-slate-200 before:dark:bg-darkmode-400 before:ml-5 before:mt-5">

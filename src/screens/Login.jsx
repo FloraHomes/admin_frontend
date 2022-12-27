@@ -112,7 +112,7 @@ const Login = () => {
                        onChange={handleChange}
                        id="email"
                        type="email"
-                       placeholder="email@example.com"
+                       placeholder="Enter Email"
                        onBlur={handleBlur}
                       className={`intro-x login__input form-control mb-3 py-3 px-4 block ${classnames(
                         {
@@ -131,7 +131,7 @@ const Login = () => {
                        onChange={handleChange}
                        id="password"
                        type="password"
-                       placeholder="email@example.com"
+                       placeholder="Enter Password"
                        onBlur={handleBlur}
                       className={`intro-x login__input form-control py-3 px-4 block ${classnames(
                         {
