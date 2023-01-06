@@ -36,6 +36,8 @@ const PaymentModal = () => {
   const data = useSelector((state) => state.property);
   const property = data?.property?.data;
 
+  console.log(data);
+
 
   const config = {
     reference: new Date().getTime().toString(),
@@ -86,10 +88,12 @@ const PaymentModal = () => {
   return (
     <Modal show={modal.status} backdrop="static" onHidden={closeModal}>
       <ModalHeader>
-        <h2 className="font-medium text-base mr-auto">
+        {data?.loading ? (<span className="text-success">Please, wait while we fetch property info...</span>) : (
+          <h2 className="font-medium text-base mr-auto">
           {property?.name} - &#8358;
           {amountFormat(property?.currentPricePerUnit)}/Unit
         </h2>
+        )}
       </ModalHeader>
 
       <ModalBody className="grid grid-cols-12 gap-4 gap-y-3">
@@ -116,7 +120,7 @@ const PaymentModal = () => {
         </button>
         <button
           type="button"
-          disabled={units < 1 || property?.currentPricePerUnit === ""}
+          disabled={units < 1 || data?.loading}
           className="btn btn-primary w-20"
           onClick={() => {
             initializePayment(onSuccess, onClose);
