@@ -17,8 +17,6 @@ const Payments = () => {
 
   const payments = data?.payments?.data?.data;
 
-  console.log(payments?.length);
-
   return (
     <>
       <h2 className="intro-y text-lg font-medium mt-10">Payments</h2>
@@ -43,6 +41,7 @@ const Payments = () => {
                 </th>
                 <th className="text-center whitespace-nowrap">Amount Paid</th>
                 <th className="text-center whitespace-nowrap">Property Name</th>
+                <th className="text-center whitespace-nowrap">Source</th>
              
               </tr>
             </thead>
@@ -61,6 +60,7 @@ const Payments = () => {
                   <td className="text-center">{amountFormat(pay?.purchasedUnit)}</td>
                   <td className="text-center">&#8358;{amountFormat(pay?.amountPaid)}</td>
                   <td className="text-center">{pay?.property?.name}</td>
+                  <td className="text-center">{pay?.source}</td>
                 
                  
                 </tr>

@@ -4,14 +4,12 @@ import profilePlaceholder from "../../assets/images/placeholders/default.png";
 import { Formik, Field, Form } from "formik";
 import { updateProfileSchema } from "../../utils/formValidationSchema";
 import { formatImage } from "../../utils/format";
-import { updatePhoto, updateUser } from "../../redux/slices/userSlice";
+import { updateIdUpload, updatePhoto, updateUser } from "../../redux/slices/userSlice";
 
 const AccountUpdate = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state?.user?.user);
   const photo = useSelector((state) => state?.user?.photo);
-
-
 
   const initialValues = {
     firstName: user?.firstName,
@@ -22,20 +20,28 @@ const AccountUpdate = () => {
     address: user?.address,
   };
 
-  const handleSubmit =  (values) => {
-    if(photo === null){
-        alert("Please upload your photo")
-        return
+  const handleSubmit = (values) => {
+    if (photo === null) {
+      alert("Please upload your photo");
+      return;
     }
+
+   
     dispatch(updateUser(values))
     dispatch(next())
-   
   };
 
   const handlePhoto = (imageFile) => {
-  
+    console.log(imageFile[0]);
     formatImage(imageFile[0], async (uri) => {
-        dispatch(updatePhoto(uri))
+      dispatch(updatePhoto(uri));
+    });
+  };
+
+  const handleIdUpload = (imageFile) => {
+
+    formatImage(imageFile[0], async (uri) => {
+      dispatch(updateIdUpload(uri));
     });
   };
 
@@ -93,14 +99,10 @@ const AccountUpdate = () => {
                           type="text"
                           className="form-control"
                           name="lastName"
-                          readOnly
                         />
                       </div>
 
-                    </div>
-                    <div className="col-span-12 2xl:col-span-6">
-
-                    <div className="mt-3 2xl:mt-0">
+                      <div className="mt-3">
                         <label htmlFor="Email" className="form-label">
                           <b>Email</b>
                         </label>
@@ -116,8 +118,9 @@ const AccountUpdate = () => {
                           readOnly
                         />
                       </div>
-                      
-                      <div className="mt-3">
+                    </div>
+                    <div className="col-span-12 2xl:col-span-6">
+                      <div className="mt-3 2xl:mt-0">
                         <label htmlFor="phone" className="form-label">
                           <b>Phone Number</b>
                         </label>
@@ -132,17 +135,36 @@ const AccountUpdate = () => {
                           name="phone"
                         />
                       </div>
-                    </div>
-                    <div className="col-span-12">
+
                       <div className="mt-3">
                         <label
                           htmlFor="update-profile-form-5"
                           className="form-label"
                         >
-                          <b>Address</b>{" "} <small><i>(Optional)</i></small>
+                          <b>Upload ID Card</b>
+                        </label>
+                        <input
+                          type="file"
+                          style={{padding: 10}}
+                          className="form-control"
+                          onChange={(e) => handleIdUpload(e.target.files)}
+                          accept="image/jpeg, image/png"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          htmlFor="update-profile-form-5"
+                          className="form-label"
+                        >
+                          <b>Address</b>{" "}
+                          <small>
+                            <i>(Optional)</i>
+                          </small>
                         </label>
                         <Field
-                          component="textarea"
+                          // component="textarea"
+                          type="text"
                           className="form-control"
                           placeholder="Adress"
                           name="address"
@@ -150,7 +172,10 @@ const AccountUpdate = () => {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-success w-20 mt-3">
+                  <button
+                    type="submit"
+                    className="btn btn-success text-white w-20 mt-3"
+                  >
                     Next
                   </button>
                 </div>
@@ -167,16 +192,16 @@ const AccountUpdate = () => {
                 />
               </div>
               <div className="mx-auto cursor-pointer relative mt-5">
-                      <button type="button" className="btn btn-warning w-full">
-                        {photo ? "Change Photo" : "Upload Photo"}
-                      </button>
-                      <input
-                        type="file"
-                        className="w-full h-full top-0 left-0 absolute opacity-0"
-                        onChange={(e)=>handlePhoto(e.target.files)}
-                        accept="image/jpeg, image/png"
-                      />
-                    </div>
+                <button type="button" className="btn btn-warning w-full">
+                  {photo ? "Change Photo" : "Upload Photo"}
+                </button>
+                <input
+                  type="file"
+                  className="w-full h-full top-0 left-0 absolute opacity-0"
+                  onChange={(e) => handlePhoto(e.target.files)}
+                  accept="image/jpeg, image/png"
+                />
+              </div>
             </div>
           </div>
         </div>

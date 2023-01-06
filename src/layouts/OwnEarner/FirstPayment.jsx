@@ -17,6 +17,7 @@ const FirstPayment = () => {
   const choosenProperty = useSelector((state) => state?.user?.property);
   const user = useSelector((state) => state?.user?.user);
   const photo = useSelector((state) => state?.user?.photo);
+  const idUpload = useSelector((state) => state?.user?.idUpload);
   const signature = useSelector((state) => state?.user?.signature);
   const navigate = useNavigate()
 
@@ -37,6 +38,12 @@ const FirstPayment = () => {
     b64: photo,
   }
 
+  const idUploadPayload = {
+    folderName: "IdUploads",
+    width: 400,
+    b64: idUpload,
+  }
+
   const signaturePayload = {
     folderName: "Signatures",
     width: 250,
@@ -45,6 +52,7 @@ const FirstPayment = () => {
 
   const uploadSignature = (await uploadFile((signaturePayload)))?.data;
   const uploadPhoto = (await uploadFile((photoPayload)))?.data;
+  const uploadId = (await uploadFile((idUploadPayload)))?.data;
 
   const userPayload = {
     _id: user?._id,
@@ -56,6 +64,7 @@ const FirstPayment = () => {
     phone: user?.phone,
     propertyId: choosenProperty?.propertyId,
     photoUrl: uploadPhoto?.data?.secure_url,
+    idUploadUrl: uploadId?.data?.secure_url,
     signatureUrl: uploadSignature?.data?.secure_url,
   }
 
@@ -66,12 +75,14 @@ const FirstPayment = () => {
     referenceId: reference?.reference,
     propertyId: choosenProperty?.propertyId,
     userId: user?._id,
+    source: "Web Payment"
   }
+
 
   const goalPayload = {
     firstPayment: choosenProperty?.currentPrice * goal?.firstPurchase,
     goalUnits: goal?.goalUnits,
-    subsequentPurchase: goal?.subsequentPurchase,
+    subsequentPurchase: ((goal?.goalUnits - goal?.firstPurchase) / (goal?.goalDuration -1)).toFixed(2),
     referralId: user?.referralCode,
     property: choosenProperty?.propertyId,
     user: user?._id,
@@ -141,7 +152,7 @@ const FirstPayment = () => {
           Previous
         </button>
         <button
-          className="btn btn-success w-30 ml-2"
+          className="btn btn-success w-30 ml-2 text-white"
           onClick={() => {
             initializePayment(onSuccess, onClose);
           }}

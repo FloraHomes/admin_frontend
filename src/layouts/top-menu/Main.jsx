@@ -29,7 +29,7 @@ function Main() {
       <MainColorSwitcher />
       <MobileMenu />
       <TopBar />
-      {/* BEGIN: Top Menu */}
+      {/* BEGIN: Top Menu */} 
       <nav className="top-nav">
         <ul>
           {formattedMenu.map((menu, menuKey) => (

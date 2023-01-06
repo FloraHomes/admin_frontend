@@ -4,6 +4,7 @@ import { object } from 'prop-types'
 const initialState = {
     user: {},
     photo: null,
+    idUpload: null,
     goal: {},
     payment: {},
     signature: null,
@@ -26,6 +27,9 @@ const userSlice = createSlice({
         updatePhoto:(state, action) => {
             state.photo = action.payload
         },
+        updateIdUpload:(state, action) => {
+            state.idUpload = action.payload
+        },
         saveGoal: (state, action) => {
             state.goal = action.payload
         },
@@ -39,4 +43,4 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const {saveUser, removeUser, updatePhoto, updateUser, saveGoal, saveProperty, saveSignature} = userSlice.actions
+export const {saveUser, removeUser, updatePhoto, updateUser, saveGoal, saveProperty, saveSignature, updateIdUpload} = userSlice.actions

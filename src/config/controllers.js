@@ -7,4 +7,5 @@ export const controllers = {
     upload: `${BASE_URL}/upload`,
     property: `${BASE_URL}/properties`,
     goal: `${BASE_URL}/goal`,
+    withdrawal: `${BASE_URL}/withdrawal`,
 }

@@ -3,13 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     Lucide,
     Tippy,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownContent,
-    DropdownItem,
-    Modal,
-    ModalBody,
   } from "@/base-components";
 import { setRefferalLinkModal } from '../redux/slices/modalSlice';
 import { fetchReferrals } from '../redux/slices/referralSlice';
@@ -26,20 +19,21 @@ const Referrals = () => {
       const data = useSelector((state) => state.referrals);
       
       const referrals = data?.referrals?.data?.data;
-      console.log(referrals);
+    
     return (
         <>
         <h2 className="intro-y text-lg font-medium mt-10">Referrals</h2>
-        <div className="grid grid-cols-12 gap-6 mt-5">
+        <div className="grid grid-cols-12 gap-2 mt-5">
+       
           <div className="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
             <button
-              className="btn btn-primary shadow-md mr-2"
+              className="btn btn-success text-white shadow-md mr-2"
               onClick={() => dispatch(setRefferalLinkModal({status: true}))}
             >
               Copy Referral Link
             </button>
           </div>
-          {/* BEGIN: Data List -*/}
+    
           <div className="intro-y col-span-12 overflow-auto lg:overflow-visible">
             <table className="table table-report -mt-2">
               <thead>

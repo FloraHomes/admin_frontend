@@ -1,16 +1,7 @@
 import { useEffect } from "react";
-import { Lucide, Alert, Tippy } from "@/base-components";
-import { faker as $f } from "@/utils";
-import * as $_ from "lodash";
-import classnames from "classnames";
-import ReportLineChart from "@/components/report-line-chart/Main";
+import { Lucide, } from "@/base-components";
 import ReportPieChart from "@/components/report-pie-chart/Main";
-import ReportDonutChart from "@/components/report-donut-chart/Main";
-import ReportDonutChart1 from "@/components/report-donut-chart-1/Main";
-import SimpleLineChart1 from "@/components/simple-line-chart-1/Main";
-import ReportMap from "@/components/report-map/Main";
 import { useRef, useState } from "react";
-import { DatePicker } from "react-responsive-datepicker";
 import { useSelector, useDispatch } from "react-redux";
 import { setRefferalLinkModal } from "../../redux/slices/modalSlice";
 import { fetchPaymentSummary } from "../../redux/slices/PaymentSummarySlice";
@@ -24,8 +15,6 @@ import { priceChanges2 } from "../../mock/priceChanges";
 
 const OwnEarnerDashboard = () => {
   const dispatch = useDispatch();
-
-  const user = useSelector((state) => state?.user?.user);
   const paySummaryData = useSelector(
     (state) => state?.paymentSummary?.paymentSummary?.data
   );
@@ -34,7 +23,8 @@ const OwnEarnerDashboard = () => {
     (state) => state?.referralSummary?.referralSummary?.data
   );
 
-  console.log(paySummaryData);
+  console.log(referralSummary);
+
   const paySummary = paySummaryData?.paySummary[0];
 
   const goalMetPercent = (paySummary?.purchasedUnits / goal?.goalUnits) * 100;
@@ -61,35 +51,10 @@ const OwnEarnerDashboard = () => {
     <div className="grid grid-cols-12 gap-6">
       <div className="col-span-12 2xl:col-span-9">
         <div className="grid grid-cols-12 gap-6">
-          {/* BEGIN: General Report */}
           <div className="col-span-12 mt-8">
-            {/* <div className="col-span-12 intro-y items-center">
-              <Alert className="box bg-success text-white flex items-center mb-6">
-                {({ dismiss }) => (
-                  <>
-                    <span>
-                      Hello {user?.firstName}, Enjoy the full benefit of an
-                      Own-Earner by reffering others.{" "}
-                      <a
-                        style={{
-                          color: "#541484",
-                          fontWeight: "bolder",
-                          cursor: "pointer",
-                        }}
-                        onClick={() =>
-                          dispatch(setRefferalLinkModal({ status: true }))
-                        }
-                      >
-                        Click here
-                      </a>{" "}
-                      for your referal link
-                    </span>
-                  </>
-                )}
-              </Alert>
-            </div> */}
+         
             <div className="grid grid-cols-12 gap-6 mt-5">
-              <div className="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+              <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
                 <div className="report-box zoom-in">
                   <div className="box p-5">
                     <div className="flex">
@@ -107,7 +72,7 @@ const OwnEarnerDashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+              <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
                 <div className="report-box zoom-in">
                   <div className="box p-5">
                     <div className="flex">
@@ -123,7 +88,7 @@ const OwnEarnerDashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+              <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
                 <div className="report-box zoom-in">
                   <div className="box p-5">
                     <div className="flex">
@@ -142,7 +107,7 @@ const OwnEarnerDashboard = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+              <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
                 <div className="report-box zoom-in">
                   <div className="box p-5">
                     <div className="flex">

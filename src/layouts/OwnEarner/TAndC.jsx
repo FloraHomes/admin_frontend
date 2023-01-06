@@ -86,7 +86,7 @@ const TAndC = () => {
         </button>
         <button
           disabled={!isSigned}
-          className="btn btn-success w-24 ml-2"
+          className="btn btn-success w-24 ml-2 text-white"
           onClick={() => {dispatch(saveSignature(signPad.current.toDataURL())); dispatch(next())}}
         >
           Next

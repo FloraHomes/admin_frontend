@@ -148,7 +148,7 @@ const Login = () => {
                   </div>
                   <div className="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                     <button
-                      className="btn btn-success py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
+                      className="btn btn-success text-white py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
                       type="submit"
                       disabled={isLoading}
                     >

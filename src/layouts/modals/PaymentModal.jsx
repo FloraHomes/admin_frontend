@@ -14,9 +14,7 @@ import { fetchProperty } from "../../redux/slices/propertySlice";
 
 const PaymentModal = () => {
   const [units, setunits] = useState("");
-
   const user = useSelector((state) => state?.user?.user);
-
   const modal = useSelector((state) => state.modal?.paymentModal);
   const dispatch = useDispatch();
 
@@ -34,16 +32,16 @@ const PaymentModal = () => {
     dispatch(fetchProperty({id: user?.property}))
   }, []);
 
+
   const data = useSelector((state) => state.property);
   const property = data?.property?.data;
 
-  console.log(property);
 
   const config = {
     reference: new Date().getTime().toString(),
     email: user?.email,
     amount: property?.currentPricePerUnit * units * 100,
-    publicKey: "pk_test_0771d7e4094956f3747fad03b45bbc61875d5d59",
+    publicKey: import.meta.env?.VITE_PAYSTACK_PUBLIC_KEY,
   };
 
   const onClose = () => {
@@ -67,6 +65,7 @@ const PaymentModal = () => {
       referenceId: reference?.reference,
       propertyId: user?.property,
       userId: user?._id,
+      source: "Web Payment"
     };
 
     const res = (await savePurchase(paymentPayload))?.data;

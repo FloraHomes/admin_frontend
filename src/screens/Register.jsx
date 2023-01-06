@@ -92,12 +92,12 @@ const Register = () => {
                   className="-intro-x w-1/2 -mt-16"
                   src={illustrationUrl}
                 /> */}
-                {params?.firstName && (
+                {/* {params?.firstName && (
                   <div className="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
                   Hi, {params?.firstName} invited you here.
                 </div>
                 )}
-                
+                 */}
 
                 <div className="-intro-x text-white font-medium text-4xl leading-tight mt-5">
                   A few more clicks to <br />
@@ -243,7 +243,7 @@ const Register = () => {
                  
                   <div className="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                     <button
-                      className="btn btn-success py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
+                      className="btn btn-success text-white py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
                       type="submit"
                       disabled={isLoading}
                     >

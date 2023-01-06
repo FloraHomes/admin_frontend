@@ -20,6 +20,11 @@ const menuData = {
         title: "Referrals",
         pathname: "/referrals",
       },
+      {
+        icon: "Briefcase",
+        title: "Withrawals",
+        pathname: "/withrawals",
+      },
   
     ],
     admin: [

@@ -35,7 +35,7 @@ export const updateProfileSchema = yup.object().shape({
 export const goalSchema = yup.object().shape({
   goalUnits: yup
           .number()
-          .required("Total units is required")
+          .required("Goal units is required")
           .moreThan(161, "Can't be less than 162sqm"),
   goalDuration: yup
           .string()
@@ -45,9 +45,9 @@ export const goalSchema = yup.object().shape({
           .number()
           .required("Enter First Purchase Unit")
           .moreThan(9, "Can't be less than 10sqm"),
-  subsequentPurchase: yup
-          .string()
-          .required("Enter subsequent purchase unit"),
+  // subsequentPurchase: yup
+  //         .string()
+  //         .required("Enter subsequent purchase unit"),
                 
 
 });

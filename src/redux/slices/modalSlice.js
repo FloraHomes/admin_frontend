@@ -22,6 +22,12 @@ export const modalSlice = createSlice({
       status: false,
     },
 
+    walletModal: {
+      status: false,
+      balance: ""
+    },
+
+
     confirmPopUp: {
       status: false,
       type: "",
@@ -62,6 +68,13 @@ export const modalSlice = createSlice({
       };
     },
 
+    setWalletModal: (state, { payload }) => {
+      state.walletModal = {
+        status: payload.status,
+        balance: payload?.balance
+      };
+    },
+
     setRefferalLinkModal: (state, {payload}) => {
       state.refferalLinkModal = {
         status: payload.status,
@@ -91,5 +104,5 @@ export const modalSlice = createSlice({
   },
 });
 
-export const { setAlertModal, setLoader, setConfirmPopUp, setFormModal, setRefferalLinkModal, setPaymentModal } = modalSlice.actions;
+export const { setAlertModal, setLoader, setConfirmPopUp, setFormModal, setRefferalLinkModal, setPaymentModal, setWalletModal } = modalSlice.actions;
 export default modalSlice.reducer;
