@@ -45,7 +45,7 @@ function Main(props) {
               className="w-6"
               src={logoUrl}
             /> */}
-            <span className="text-white text-lg ml-3"> Flora Homes </span>
+            <span className="text-white text-lg ml-3"> FloraHomesGC </span>
           </Link>
           {/* END: Logo */}
           {/* BEGIN: Breadcrumb */}
