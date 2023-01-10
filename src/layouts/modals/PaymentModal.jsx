@@ -83,6 +83,7 @@ const PaymentModal = () => {
     res?.status && dispatch(fetchCustomerPayments());
   };
 
+  console.log(data)
 
 
   return (
