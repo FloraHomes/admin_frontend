@@ -11,6 +11,7 @@ import { fetchReferralSummary } from "../../redux/slices/referralSummarySlice";
 import { useNavigate } from "react-router-dom";
 import PaymentTable from "../../layouts/OwnEarner/PaymentTable";
 import { priceChanges2 } from "../../mock/priceChanges";
+import profilePlaceholder from "../../assets/images/placeholders/default.png";
 
 
 const OwnEarnerDashboard = () => {
@@ -221,8 +222,8 @@ const OwnEarnerDashboard = () => {
                         <div className="box px-5 py-3 mb-3 flex items-center zoom-in">
                           <div className="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
                             <img
-                              alt="Midone Tailwind HTML Admin Template"
-                              src={referral?.user?.photoUrl}
+                              alt={referral?.user?.firstName}
+                              src={referral?.user?.photoUrl || profilePlaceholder}
                             />
                           </div>
                           <div className="ml-4 mr-auto">
