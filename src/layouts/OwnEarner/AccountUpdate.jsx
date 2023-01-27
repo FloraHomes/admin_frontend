@@ -27,6 +27,19 @@ const AccountUpdate = () => {
     phone: user?.phone,
     refferalCode: user?.refferalCode,
     address: user?.address,
+    dob: "",
+    gender: "",
+    accountName: "",
+    bankName: "",
+    accountNo: "",
+    permanentAddress: "",
+    occupation: "",
+    workAddress: "",
+    maritalStatus: "",
+    nokName: "",
+    nokPhone: "",
+    nokAddress: "",
+    rNok: "",
   };
 
   const handleSubmit = async(values) => {
@@ -153,7 +166,7 @@ const AccountUpdate = () => {
                       </div>
 
                       <div className="mt-3">
-                        <label htmlFor="phone" className="form-label">
+                        <label htmlFor="dob" className="form-label">
                           <b>Date of birth</b>
                         </label>
                         {errors.dob && touched.dob && (
@@ -194,7 +207,7 @@ const AccountUpdate = () => {
                       </div>
 
                       <div className="mt-3">
-                        <label htmlFor="phone" className="form-label">
+                        <label htmlFor="accountName" className="form-label">
                           <b>Account Name</b>
                         </label>
                         {errors.accountName && touched.accountName && (
@@ -262,7 +275,7 @@ const AccountUpdate = () => {
                           // component="textarea"
                           type="text"
                           className="form-control"
-                          placeholder="Adress"
+                          placeholder="Address"
                           name="address"
                         />
                       </div>
