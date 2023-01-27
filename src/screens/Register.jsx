@@ -8,7 +8,7 @@ import { signin, signUp } from "../services/authService";
 import { useFormik } from "formik";
 import { signupSchema } from "../utils/formValidationSchema";
 import { LoadingIcon } from "@/base-components";
-import { saveUser, updateUser } from "../redux/slices/userSlice";
+import { saveUser, updatesUser } from "../redux/slices/userSlice";
 import { setAlertModal } from "../redux/slices/modalSlice";
 import { useDispatch } from "react-redux";
 
@@ -27,13 +27,12 @@ const Register = () => {
   const onSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
     const res = (await signUp(values))?.data;
-    console.log(res);
 
     if (res) {
       if (res?.status) {
         dispatch(saveUser(res?.data));
         if(params?.id) {
-          dispatch(updateUser({referralCode: params?.id}))
+          dispatch(updatesUser({referralCode: params?.id}))
         }
         resetForm();
         return navigate("/dashboard");

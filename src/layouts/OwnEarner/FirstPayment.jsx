@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { back } from "../../redux/slices/ownEarnerSlice";
+import { back, next } from "../../redux/slices/ownEarnerSlice";
 import { amountFormat } from "../../utils/format";
 import { usePaystackPayment } from "react-paystack";
 import { uploadFile } from "../../services/sharedService";
@@ -32,17 +32,17 @@ const FirstPayment = () => {
   const completeFirstPurchase = async (reference) => {
     dispatch(setLoader({status: true}))
 
-  const photoPayload = {
-    folderName: "Photos",
-    width: 200,
-    b64: photo,
-  }
+  // const photoPayload = {
+  //   folderName: "Photos",
+  //   width: 200,
+  //   b64: photo,
+  // }
 
-  const idUploadPayload = {
-    folderName: "IdUploads",
-    width: 400,
-    b64: idUpload,
-  }
+  // const idUploadPayload = {
+  //   folderName: "IdUploads",
+  //   width: 400,
+  //   b64: idUpload,
+  // }
 
   const signaturePayload = {
     folderName: "Signatures",
@@ -51,21 +51,14 @@ const FirstPayment = () => {
   }
 
   const uploadSignature = (await uploadFile((signaturePayload)))?.data;
-  const uploadPhoto = (await uploadFile((photoPayload)))?.data;
-  const uploadId = (await uploadFile((idUploadPayload)))?.data;
+  // const uploadPhoto = (await uploadFile((photoPayload)))?.data;
+  // const uploadId = (await uploadFile((idUploadPayload)))?.data;
 
   const userPayload = {
     _id: user?._id,
-    email: user?.email,
-    role: "ownEarner",
-    firstName: user?.firstName,
-    lastName: user?.lastName,
-    address: user?.address,
-    phone: user?.phone,
     propertyId: choosenProperty?.propertyId,
-    photoUrl: uploadPhoto?.data?.secure_url,
-    idUploadUrl: uploadId?.data?.secure_url,
     signatureUrl: uploadSignature?.data?.secure_url,
+    onboardingLevel: "paid",
   }
 
   const paymentPayload = {
@@ -97,14 +90,15 @@ const FirstPayment = () => {
 
   dispatch(saveGoal({}))
   dispatch(saveProperty({}))
-  dispatch(updatePhoto(null))
+  // dispatch(updatePhoto(null))
   dispatch(saveSignature(null))
-  dispatch(saveUser(updatedUser?.data))
+  // dispatch(saveUser(updatedUser?.data))
   dispatch(setLoader({status: false}))
 
-  navigate("/dashboard")
+  // navigate("/dashboard")
+  dispatch(next());
 
-  dispatch(setAlertModal({status: true, type: "Success", message: "Dear Customer, You have successfully onboarded and you are now a full flesh Own-Earner partner with us at Flora homes. We wish you the very best."}))
+  dispatch(setAlertModal({status: true, type: "Success", message: "Dear Customer, You have successfully created a goal and made first payment. Please update your profile to complete onboarding."}))
 
    
   };

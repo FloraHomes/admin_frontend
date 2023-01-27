@@ -39,7 +39,7 @@ export const simpleDateString = (date) => {
 };
 
 export const dateInWord = (date) => {
-  return date ? moment(date).format('MMMM Do YYYY') : ""; 
+  return date ? moment(date).format('lll') : ""; 
 };
 
 export const sentenceCaseFormat = (str) => {

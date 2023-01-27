@@ -41,7 +41,8 @@ import Accordion from "../views/accordion/Main";
 import Button from "../views/button/Main";
 import Alert from "../views/alert/Main";
 import ProgressBar from "../views/progress-bar/Main";
-;
+import WysiwygEditor from "../views/wysiwyg-editor/Main";
+
 import ProtectedRoute from './ProtectedRoute';
 import Login from '../screens/Login';
 import OwnEarnerDashboard from '../screens/dashboard/OwnEarnerDashboard';
@@ -59,6 +60,7 @@ const Router = () => {
 
   return (
     <Routes>
+      <Route path="/a" element={<WysiwygEditor/>}/>
       <Route path="/" element={<Login/>}/>
       <Route path="register" element={<Register/>}/>
       <Route path="own-earner-register/:firstName/:id" element={<Register/>}/>

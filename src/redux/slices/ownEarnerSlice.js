@@ -15,6 +15,9 @@ const ownEarnerSlice = createSlice({
         back: (state) => {
             state.step = state.step - 1
         },
+        updateStep: (state, action) => {
+            state.step = action.payload
+        },
         reset: (state) => {
             state.step = 1
         },
@@ -25,4 +28,4 @@ const ownEarnerSlice = createSlice({
 })
 
 export default ownEarnerSlice.reducer
-export const {next, back, reset, updateOwnEarnerProperties} = ownEarnerSlice.actions
+export const {next, back, updateStep, reset, updateOwnEarnerProperties} = ownEarnerSlice.actions

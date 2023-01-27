@@ -144,12 +144,12 @@ const CreateGoal = () => {
         ))}
         {/* END: Users Layout */}
         <div className="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-          <button
+          {/* <button
             className="btn btn-secondary w-24"
             onClick={() => dispatch(back())}
           >
             Previous
-          </button>
+          </button> */}
           <button
             className="btn btn-success text-white w-24 ml-2"
             disabled={choosenPropery?.propertyId?.length > 0 ? false : true}
@@ -169,7 +169,8 @@ const CreateGoal = () => {
       >
         <ModalHeader>
           <h2 className="font-medium text-base mr-auto">
-            {propertyName} - {currentPrice}/Unit
+            <span className="mr-6">{propertyName} - &#8358;{currentPrice}/Unit</span>
+            <span>1 plot: {plotValue} Units</span>
           </h2>
         </ModalHeader>
         <Formik
@@ -225,7 +226,7 @@ const CreateGoal = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6">
                   <label htmlFor="modal-form-2" className="form-label">
-                    <b>Goal Duration (12 - 24months)</b>
+                    <b>Goal Duration (1 - 24months)</b>
                   </label>
                   {errors.goalDuration && touched.goalDuration && (
                     <div className="text-danger mb-2 mt-3">

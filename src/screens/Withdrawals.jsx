@@ -5,8 +5,7 @@ import {
     Tippy,
   } from "@/base-components";
 import { setWalletModal } from '../redux/slices/modalSlice';
-import { fetchReferrals } from '../redux/slices/referralSlice';
-import { amountFormat, simpleDateString } from '../utils/format';
+import { amountFormat, dateInWord } from '../utils/format';
 import TableLoader from '../components/loaders/TableLoader';
 import { fetchWithdrawals } from '../redux/slices/withdrawalSlice';
 
@@ -68,7 +67,7 @@ const Withdrawals = () => {
                 <div className="flex flex-wrap gap-3">
                   <div className="mr-auto">
                     <div className="text-white text-opacity-70 dark:text-slate-300 flex items-center leading-3">
-                      Property Account Share
+                      Property Wallet
                       <Tippy
                         tag="div"
                         content="The amount moved into your goal account (8% of refferal earnings.)"
@@ -89,6 +88,43 @@ const Withdrawals = () => {
                 </div>
               </div>
             </div>
+
+            <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
+              <div className="box p-5 mt-1 bg-primary intro-x">
+                <div className="flex flex-wrap gap-3">
+                  <div className="mr-auto">
+                    <div className="text-white text-opacity-70 dark:text-slate-300 flex items-center leading-3">
+                      Cash Wallet
+                      <Tippy
+                        tag="div"
+                        content="Amount available for withdrawal in your account"
+                      >
+                        <Lucide icon="AlertCircle" className="w-4 h-4 ml-1.5" />
+                      </Tippy>
+                    </div>
+                    <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
+                    &#8358;{amountFormat(cashWallet)}
+                    </div>
+                  </div>
+                  <Tippy
+                        tag="div"
+                        content="Withrawal Request"
+                      >
+                  <a
+                    className="flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-darkmode-300 bg-opacity-20 hover:bg-opacity-30 text-white"
+                    onClick={() => dispatch(setWalletModal({ status: true, balance: cashWallet }))}
+                  >
+                    <Lucide icon="Activity" className="w-6 h-6" />
+                  </a>
+                  </Tippy>
+                  <a
+                    className="flex items-center justify-center w-12 h-12" >
+             
+                  </a>
+                </div>
+              </div>
+            </div>
+
 
             <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
               <div className="box p-5 mt-1 bg-danger intro-x">
@@ -116,37 +152,7 @@ const Withdrawals = () => {
               </div>
             </div>
 
-            <div className="col-span-6 sm:col-span-6 xl:col-span-3 intro-y">
-              <div className="box p-5 mt-1 bg-primary intro-x">
-                <div className="flex flex-wrap gap-3">
-                  <div className="mr-auto">
-                    <div className="text-white text-opacity-70 dark:text-slate-300 flex items-center leading-3">
-                      Wallet Balance
-                      <Tippy
-                        tag="div"
-                        content="Amount available for withdrawal in your account"
-                      >
-                        <Lucide icon="AlertCircle" className="w-4 h-4 ml-1.5" />
-                      </Tippy>
-                    </div>
-                    <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
-                    &#8358;{amountFormat(cashWallet)}
-                    </div>
-                  </div>
-                  <Tippy
-                        tag="div"
-                        content="Withrawal Request"
-                      >
-                  <a
-                    className="flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-darkmode-300 bg-opacity-20 hover:bg-opacity-30 text-white"
-                    onClick={() => dispatch(setWalletModal({ status: true, balance: cashWallet }))}
-                  >
-                    <Lucide icon="Activity" className="w-6 h-6" />
-                  </a>
-                  </Tippy>
-                </div>
-              </div>
-            </div>
+          
        
     
           <div className="intro-y col-span-12 overflow-auto lg:overflow-visible mt-5">
@@ -173,9 +179,9 @@ const Withdrawals = () => {
                        
                       
                     {/* <td className="text-center">{simpleDateString(pay?.createdAt)}</td> */}
-                    <td className="">{simpleDateString(withdraw?.createdAt)}</td>
+                    <td className="">{dateInWord(withdraw?.createdAt)}</td>
                     <td className="">&#8358;{amountFormat(withdraw?.amount)}</td>
-                    <td className="">{simpleDateString(withdraw?.paymentDate)}</td>
+                    <td className="">{dateInWord(withdraw?.paymentDate)}</td>
                     <td className=""><i>{withdraw?.comment}</i></td>
                  
                   

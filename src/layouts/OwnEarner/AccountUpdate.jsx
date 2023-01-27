@@ -1,15 +1,24 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { next } from "../../redux/slices/ownEarnerSlice";
 import profilePlaceholder from "../../assets/images/placeholders/default.png";
+import idCard from "../../assets/images/placeholders/id.png";
 import { Formik, Field, Form } from "formik";
 import { updateProfileSchema } from "../../utils/formValidationSchema";
 import { formatImage } from "../../utils/format";
-import { updateIdUpload, updatePhoto, updateUser } from "../../redux/slices/userSlice";
+import { updateUser } from "../../services/authService";
+import { uploadFile } from "../../services/sharedService";
+import { updatesUser } from "../../redux/slices/userSlice";
+import { setLoader } from "../../redux/slices/modalSlice";
+import { useNavigate } from "react-router-dom";
 
 const AccountUpdate = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const user = useSelector((state) => state?.user?.user);
-  const photo = useSelector((state) => state?.user?.photo);
+  // const photo = useSelector((state) => state?.user?.photo);
+
+  const [photo, setPhoto] = useState(profilePlaceholder)
+  const [idUpload, setIdUpload] = useState(idCard)
 
   const initialValues = {
     firstName: user?.firstName,
@@ -20,28 +29,44 @@ const AccountUpdate = () => {
     address: user?.address,
   };
 
-  const handleSubmit = (values) => {
-    if (photo === null) {
+  const handleSubmit = async(values) => {
+   
+    if (photo === profilePlaceholder) {
       alert("Please upload your photo");
       return;
     }
 
-   
-    dispatch(updateUser(values))
-    dispatch(next())
+    if(idUpload === idCard){
+      alert("Please upload your ID Card");
+      return
+    }
+
+    dispatch(setLoader({status: true}))
+
+  const photoUrl = (await uploadFile(({folderName: "Photos", width: 300, b64: photo,})))?.data?.data?.secure_url;
+  const idUploadUrl = (await uploadFile(({folderName: "IdUploads", width: 300, b64: idUpload,})))?.data?.data?.secure_url;
+  let payload = {...values, photoUrl, idUploadUrl, onboardingLevel: "completed"}
+
+  const updatedUser = (await updateUser(payload))?.data
+
+    dispatch(updatesUser(updatedUser?.data));
+
+    navigate("/dashboard")
+    dispatch(setLoader({status: false}))
+
   };
 
   const handlePhoto = (imageFile) => {
-    console.log(imageFile[0]);
     formatImage(imageFile[0], async (uri) => {
-      dispatch(updatePhoto(uri));
+      // dispatch(updatePhoto(uri));
+      setPhoto(uri)
     });
   };
 
   const handleIdUpload = (imageFile) => {
-
     formatImage(imageFile[0], async (uri) => {
-      dispatch(updateIdUpload(uri));
+      // dispatch(updateIdUpload(uri));
+      setIdUpload(uri)
     });
   };
 
@@ -63,11 +88,6 @@ const AccountUpdate = () => {
                       <div>
                         <label htmlFor="Name" className="form-label">
                           <b>First Name</b> &nbsp;{" "}
-                          <i>
-                            <small>
-                              (As you want it to appear on documents)
-                            </small>
-                          </i>
                         </label>
                         {errors.firstName && touched.firstName && (
                           <div className="text-danger mb-2 mt-3">
@@ -78,17 +98,13 @@ const AccountUpdate = () => {
                           name="firstName"
                           type="text"
                           className="form-control"
+                          readOnly
                         />
                       </div>
 
                       <div className="mt-3">
                         <label htmlFor="Email" className="form-label">
                           <b>Last Name</b> &nbsp;{" "}
-                          <i>
-                            <small>
-                              (As you want it to appear on documents)
-                            </small>
-                          </i>
                         </label>
                         {errors.lastName && touched.lastName && (
                           <div className="text-danger mb-2 mt-3">
@@ -99,6 +115,7 @@ const AccountUpdate = () => {
                           type="text"
                           className="form-control"
                           name="lastName"
+                          readOnly
                         />
                       </div>
 
@@ -118,9 +135,8 @@ const AccountUpdate = () => {
                           readOnly
                         />
                       </div>
-                    </div>
-                    <div className="col-span-12 2xl:col-span-6">
-                      <div className="mt-3 2xl:mt-0">
+
+                      <div className="mt-3">
                         <label htmlFor="phone" className="form-label">
                           <b>Phone Number</b>
                         </label>
@@ -137,31 +153,111 @@ const AccountUpdate = () => {
                       </div>
 
                       <div className="mt-3">
-                        <label
-                          htmlFor="update-profile-form-5"
-                          className="form-label"
-                        >
-                          <b>Upload ID Card</b>
+                        <label htmlFor="phone" className="form-label">
+                          <b>Date of birth</b>
                         </label>
-                        <input
-                          type="file"
-                          style={{padding: 10}}
+                        {errors.dob && touched.dob && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.dob}
+                          </div>
+                        )}
+                        <Field
+                          type="date"
                           className="form-control"
-                          onChange={(e) => handleIdUpload(e.target.files)}
-                          accept="image/jpeg, image/png"
+                          name="dob"
                         />
                       </div>
 
                       <div className="mt-3">
+                        <label htmlFor="phone" className="form-label">
+                          <b>Gender</b>
+                        </label>
+                        {errors.gender && touched.gender && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.gender}
+                          </div>
+                        )}
+                        <Field
+                          name="gender"
+                          as="select"
+                          className="form-control"
+                        >
+                          <option
+                            label="Select an option"
+                            value=""
+                            selected="true"
+                            disabled="disabled"
+                          ></option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </Field>
+                      </div>
+
+                      <div className="mt-3">
+                        <label htmlFor="phone" className="form-label">
+                          <b>Account Name</b>
+                        </label>
+                        {errors.accountName && touched.accountName && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.accountName}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          name="accountName"
+                          placeholder="i.e Adejare Olaolu"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label htmlFor="phone" className="form-label">
+                          <b>Bank Name</b>
+                        </label>
+                        {errors.bankName && touched.bankName && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.bankName}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          name="bankName"
+                          placeholder="i.e Jaiz Bank"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label htmlFor="phone" className="form-label">
+                          <b>Account Number</b>
+                        </label>
+                        {errors.accountNo && touched.accountNo && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.accountNo}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          name="accountNo"
+                          placeholder="Enter account number"
+                        />
+                      </div>
+
+                    </div>
+                    <div className="col-span-12 2xl:col-span-6">
+                      <div className="mt-3 2xl:mt-0">
                         <label
                           htmlFor="update-profile-form-5"
                           className="form-label"
                         >
-                          <b>Address</b>{" "}
-                          <small>
-                            <i>(Optional)</i>
-                          </small>
+                          <b>Residential Address</b>{" "}
                         </label>
+                        {errors.address && touched.address && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.address}
+                          </div>
+                        )}
                         <Field
                           // component="textarea"
                           type="text"
@@ -170,13 +266,179 @@ const AccountUpdate = () => {
                           name="address"
                         />
                       </div>
+
+                      <div className="mt-3">
+                        <label
+                          htmlFor="update-profile-form-5"
+                          className="form-label"
+                        >
+                          <b>Permanent Address</b>{" "}
+                        </label>
+                        {errors.permanentAddress && touched.permanentAddress && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.permanentAddress}
+                          </div>
+                        )}
+                        <Field
+                          // component="textarea"
+                          type="text"
+                          className="form-control"
+                          placeholder="i.e Family house address"
+                          name="permanentAddress"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          htmlFor="update-profile-form-5"
+                          className="form-label"
+                        >
+                          <b>Occupation</b>{" "}
+                        </label>
+                        {errors.occupation && touched.occupation && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.occupation}
+                          </div>
+                        )}
+                        <Field
+                          // component="textarea"
+                          type="text"
+                          className="form-control"
+                          placeholder="What do you do"
+                          name="occupation"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          htmlFor="update-profile-form-5"
+                          className="form-label"
+                        >
+                          <b>Work Address</b>{" "}
+                        </label>
+                        {errors.workAddress && touched.workAddress && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.workAddress}
+                          </div>
+                        )}
+                        <Field
+                          // component="textarea"
+                          type="text"
+                          className="form-control"
+                          placeholder="Place of work address"
+                          name="workAddress"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label htmlFor="phone" className="form-label">
+                          <b>Marital Status</b>
+                        </label>
+                        {errors.maritalStatus && touched.maritalStatus && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.maritalStatus}
+                          </div>
+                        )}
+                        <Field
+                          name="maritalStatus"
+                          as="select"
+                          className="form-control"
+                        >
+                          <option
+                            label="Select an option"
+                            value=""
+                            selected="true"
+                            disabled="disabled"
+                          ></option>
+                          <option value="Single">Single</option>
+                          <option value="Married">Married</option>
+                          <option value="Divorced">Divorced</option>
+                          <option value="Widowed">Widowed</option>
+                        </Field>
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          className="form-label"
+                        >
+                          <b>Next of kin name</b>{" "}
+                        </label>
+                        {errors.nokName && touched.nokName && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.nokName}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          placeholder="name of next of kin"
+                          name="nokName"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          className="form-label"
+                        >
+                          <b>Next of kin Phone Number</b>{" "}
+                        </label>
+                        {errors.nokPhone && touched.nokPhone && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.nokPhone}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          placeholder="phone number of next of kin"
+                          name="nokPhone"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          className="form-label"
+                        >
+                          <b>Next of kin address</b>{" "}
+                        </label>
+                        {errors.nokAddress && touched.nokAddress && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.nokAddress}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          placeholder="Address of next of kin"
+                          name="nokAddress"
+                        />
+                      </div>
+
+                      <div className="mt-3">
+                        <label
+                          className="form-label"
+                        >
+                          <b>Relationship with next of kin</b>{" "}
+                        </label>
+                        {errors.rNok && touched.rNok && (
+                          <div className="text-danger mb-2 mt-3">
+                            {errors.rNok}
+                          </div>
+                        )}
+                        <Field
+                          type="text"
+                          className="form-control"
+                          placeholder="Relationship with next of kin"
+                          name="rNok"
+                        />
+                      </div>
                     </div>
                   </div>
                   <button
                     type="submit"
-                    className="btn btn-success text-white w-20 mt-3"
+                    className="btn btn-success text-white w-50 mt-3"
                   >
-                    Next
+                    Complete Onboarding
                   </button>
                 </div>
               </Form>
@@ -188,17 +450,38 @@ const AccountUpdate = () => {
                 <img
                   className="rounded-md"
                   alt={user?.name}
-                  src={photo ? photo : profilePlaceholder}
+                  src={photo}
                 />
               </div>
               <div className="mx-auto cursor-pointer relative mt-5">
                 <button type="button" className="btn btn-warning w-full">
-                  {photo ? "Change Photo" : "Upload Photo"}
+                  {photo !== profilePlaceholder ? "Change Photo" : "Upload Photo"}
                 </button>
                 <input
                   type="file"
                   className="w-full h-full top-0 left-0 absolute opacity-0"
                   onChange={(e) => handlePhoto(e.target.files)}
+                  accept="image/jpeg, image/png"
+                />
+              </div>
+            </div>
+
+            <div className="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5 mt-3">
+              <div className="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
+                <img
+                  className="rounded-md"
+                  alt={user?.name}
+                  src={idUpload}
+                />
+              </div>
+              <div className="mx-auto cursor-pointer relative mt-5">
+                <button type="button" className="btn btn-primary w-full">
+                  {idUpload !== idCard ? "Change ID Card" : "Upload ID Card"}
+                </button>
+                <input
+                  type="file"
+                  className="w-full h-full top-0 left-0 absolute opacity-0"
+                  onChange={(e) => handleIdUpload(e.target.files)}
                   accept="image/jpeg, image/png"
                 />
               </div>

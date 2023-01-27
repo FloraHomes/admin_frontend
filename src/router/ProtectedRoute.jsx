@@ -5,10 +5,8 @@ import ErrorPage from "../screens/ErrorPage";
 import OwnEarnerSetup from "../screens/OwnEarnerSetup";
 
 const ProtectedRoute = ({roles}) => {
-
-  console.log(roles);
-
   const user = useSelector((state) => state?.user?.user);
+  console.log(user);
   if (!user?.token) {
     return <Navigate to="/" replace />;
   }
@@ -21,7 +19,7 @@ const ProtectedRoute = ({roles}) => {
     )
 }
 
-  if(user?.role === "ownEarner" && !user?.isComplete){
+  if(user?.role === "ownEarner" && user?.onboardingLevel !== "completed"){
     return <Layout><OwnEarnerSetup/></Layout>;
   }
 

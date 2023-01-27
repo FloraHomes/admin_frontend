@@ -20,15 +20,27 @@ export const signupSchema = yup.object().shape({
 });
 
 export const updateProfileSchema = yup.object().shape({
-  firstName: yup.string()
-        .required("Your firstname is required"),
-  lastName: yup.string()
-        .required("Your lastname is required"),
+  firstName: yup.string().required("Your firstname is required"),
+  lastName: yup.string().required("Your lastname is required"),
   phone: yup
           .string()
           .required("Your Phone Number is required")
           .matches(/^[0-9]+$/, "Must be only digits"),
   email: yup.string().email("Please enter a valid email").required("Your Email is required"),
+  dob: yup.string().required("Date of bith is required"),
+  gender: yup.string().required("Gender is required"),
+  accountName: yup.string().required("Account name is required"),
+  bankName: yup.string().required("Bank name is required"),
+  accountNo: yup.string().required("Account number is required"),
+  address: yup.string().required("Residential address is required"),
+  permanentAddress: yup.string().required("Permanent address is required"),
+  occupation: yup.string().required("Occupation is required"),
+  workAddress: yup.string().required("Work address is required"),
+  maritalStatus: yup.string().required("Marital status is required"),
+  nokName: yup.string().required("Next of kin name is required"),
+  nokPhone: yup.string().required("Next of kin phone is required"),
+  nokAddress: yup.string().required("Next of kin address is required"),
+  rNok: yup.string().required(" Relationship with next of kin is required"),
 
 });
 

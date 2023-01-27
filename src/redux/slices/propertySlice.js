@@ -11,7 +11,6 @@ const initialState = {
 export const fetchProperty = createAsyncThunk(
     "property/fetch",
     async (arg) => {
-      console.log(arg);
       return httpRequest(controllers.property + `/${arg.id}`);
     }
   );

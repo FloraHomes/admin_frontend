@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGoal } from "../redux/slices/goalSlice";
 import { amountFormat } from "../utils/format";
 import { fetchPaymentSummary } from "../redux/slices/PaymentSummarySlice";
-import PaymentTable from "../layouts/OwnEarner/PaymentTable";
 import PriceChangeTable from "../layouts/OwnEarner/PriceChangeTable";
 
 const Goal = () => {
@@ -114,7 +113,7 @@ const Goal = () => {
                     </h2> */}
 
                   <TabList className="nav-link-tabs w-auto mr-auto">
-                  <span onClick={() => setTab(1)}>
+                  {/* <span onClick={() => setTab(1)}>
                     <Tab
                       fullWidth={false}
                       className="py-5 cursor-pointer"
@@ -122,8 +121,8 @@ const Goal = () => {
                     >
                      Recent Payment
                     </Tab>
-                    </span> 
-                    <span  onClick={() => setTab(2)}>
+                    </span>  */}
+                    <span  onClick={() => setTab(1)}>
                     <Tab
                       fullWidth={false}
                       className="py-5 cursor-pointer"
@@ -133,7 +132,8 @@ const Goal = () => {
                     </span>
                   </TabList>
                 </div>
-                {tab === 1 ? <PaymentTable /> : <PriceChangeTable />}
+                {/* {tab === 1 ? <PriceChangeTable /> : <PriceChangeTable />} */}
+                {<PriceChangeTable/>}
               </TabGroup>
 
               <TabGroup className="intro-y box col-span-12 lg:col-span-6">

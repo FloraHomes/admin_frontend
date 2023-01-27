@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { amountFormat, simpleDateString } from "../../utils/format";
+import { amountFormat, dateInWord } from "../../utils/format";
 
 const PaymentTable = () => {
   const recentPayments = useSelector(
@@ -23,7 +23,7 @@ const PaymentTable = () => {
               &#8358;{amountFormat(payment?.amountPaid)}
               </a>
               <div className="text-slate-500 text-xs whitespace-nowrap mt-0.5">
-                {simpleDateString(payment?.createdAt)}
+                {dateInWord(payment?.createdAt)}
               </div>
             </td>
             <td className="text-center">{payment?.property?.name}</td>

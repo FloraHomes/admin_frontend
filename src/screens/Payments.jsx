@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCustomerPayments } from "../redux/slices/paymentSlice";
-import { amountFormat, simpleDateString } from "../utils/format";
+import { amountFormat, dateInWord } from "../utils/format";
 import { setPaymentModal } from "../redux/slices/modalSlice";
-import LoadingIcon from "../views/loading-icon/Main";
 import TableLoader from "../components/loaders/TableLoader";
 
 const Payments = () => {
@@ -55,7 +54,7 @@ const Payments = () => {
                   <tr key={pay?._id} className="intro-x">
                      
                     
-                  <td className="text-center">{simpleDateString(pay?.createdAt)}</td>
+                  <td className="text-center">{dateInWord(pay?.createdAt)}</td>
                   <td className="text-center">&#8358;{amountFormat(pay?.price)}</td>
                   <td className="text-center">{amountFormat(pay?.purchasedUnit)}</td>
                   <td className="text-center">&#8358;{amountFormat(pay?.amountPaid)}</td>

@@ -6,7 +6,7 @@ import {
   } from "@/base-components";
 import { setRefferalLinkModal } from '../redux/slices/modalSlice';
 import { fetchReferrals } from '../redux/slices/referralSlice';
-import { amountFormat, simpleDateString } from '../utils/format';
+import { amountFormat, dateInWord, simpleDateString } from '../utils/format';
 import TableLoader from '../components/loaders/TableLoader';
 
 const Referrals = () => {
@@ -55,23 +55,8 @@ const Referrals = () => {
                 ) : referrals?.length > 0 ?  (
                   referrals?.map((referral) => (
                     <tr key={referral?._id} className="intro-x">
-                       
-                      
-                    {/* <td className="text-center">{simpleDateString(pay?.createdAt)}</td> */}
-                    <td className="w-40">
-                    <div className="flex">
-                      <div className="w-10 h-10 image-fit zoom-in">
-                        <Tippy
-                          tag="img"
-                          alt="Midone Tailwind HTML Admin Template"
-                          className="rounded-full"
-                          src={referral?.user?.photoUrl}
-                          content={`Created on ${simpleDateString(referral?.user?.createdAt)}`}
-                        />
-                      </div>
-                     
-                    </div>
-                  </td>
+                    
+                  <td className="">{dateInWord(referral?.user?.createdAt)}</td>
                     <td className="">{referral?.user?.firstName} {referral?.user?.lastName}</td>
                     <td className="">&#8358;{amountFormat(referral?.firstPayment)}</td>
                     <td className="">&#8358;{amountFormat(referral?.firstPayment / 10)}</td>

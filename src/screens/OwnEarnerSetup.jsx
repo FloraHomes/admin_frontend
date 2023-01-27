@@ -1,17 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import {useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AccountUpdate from '../layouts/OwnEarner/AccountUpdate';
 import CreateGoal from '../layouts/OwnEarner/CreateGoal';
 import {Lucide, Alert} from "@/base-components"
 import TAndC from '../layouts/OwnEarner/TAndC';
 import FirstPayment from '../layouts/OwnEarner/FirstPayment';
+import { updateStep } from '../redux/slices/ownEarnerSlice';
 
 const OwnEarnerSetup = () => {
     const step = useSelector((state) => state?.ownEarner?.step);
     const user = useSelector((state) => state?.user?.user);
 
-    
-  
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      if(user?.onboardingLevel === "paid"){
+        dispatch(updateStep(4))
+      }
+    }, [user])
 
     return (
         <>
@@ -30,28 +36,29 @@ const OwnEarnerSetup = () => {
         {/* BEGIN: Wizard Layout */}
         <div className="intro-y box py-10 sm:py-20 mt-5">
           <div className="relative before:hidden before:lg:block before:absolute before:w-[69%] before:h-[3px] before:top-0 before:bottom-0 before:mt-4 before:bg-slate-100 before:dark:bg-darkmode-400 flex flex-col lg:flex-row justify-center px-5 sm:px-20">
-            <div className="intro-x lg:text-center flex items-center lg:block flex-1 z-10">
-              <button className="w-10 h-10 rounded-full btn btn-primary">
-              {step > 1 ? <Lucide icon="Check" className="w-10 h-10" /> : 1}
-              </button>
-              <div className="lg:w-32 font-medium text-base lg:mt-3 ml-3 lg:mx-auto">
-                Update Profile
-              </div>
-            </div>
+        
             <div className="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-              <button className={step >=2 ? "w-10 h-10 rounded-full btn btn-primary" : "w-10 h-10 rounded-full btn text-slate-500 bg-slate-100 dark:bg-darkmode-400 dark:border-darkmode-400"}>
-              {step > 2 ? <Lucide icon="Check" className="w-10 h-10" /> : 2}
+              <button className={step >=1 ? "w-10 h-10 rounded-full btn btn-primary" : "w-10 h-10 rounded-full btn text-slate-500 bg-slate-100 dark:bg-darkmode-400 dark:border-darkmode-400"}>
+              {step > 1 ? <Lucide icon="Check" className="w-10 h-10" /> : 1}
               </button>
               <div className="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-slate-600 dark:text-slate-400">
                 Create a goal
               </div>
             </div>
             <div className="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-            <button className={step >=3 ? "w-10 h-10 rounded-full btn btn-primary" : "w-10 h-10 rounded-full btn text-slate-500 bg-slate-100 dark:bg-darkmode-400 dark:border-darkmode-400"}>
-            {step > 3 ? <Lucide icon="Check" className="w-10 h-10" /> : 3}
+            <button className={step >=2 ? "w-10 h-10 rounded-full btn btn-primary" : "w-10 h-10 rounded-full btn text-slate-500 bg-slate-100 dark:bg-darkmode-400 dark:border-darkmode-400"}>
+            {step > 2 ? <Lucide icon="Check" className="w-10 h-10" /> : 2}
               </button>
               <div className="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-slate-600 dark:text-slate-400">
                 T &amp; C
+              </div>
+            </div>
+            <div className="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
+            <button className={step >=3 ? "w-10 h-10 rounded-full btn btn-primary" : "w-10 h-10 rounded-full btn text-slate-500 bg-slate-100 dark:bg-darkmode-400 dark:border-darkmode-400"}>
+              {step > 3 ? <Lucide icon="Check" className="w-10 h-10" /> : 3}
+              </button>
+              <div className="lg:w-32 font-medium text-base lg:mt-3 ml-3 lg:mx-auto">
+                Payment
               </div>
             </div>
             <div className="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
@@ -59,11 +66,11 @@ const OwnEarnerSetup = () => {
                 4
               </button>
               <div className="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-slate-600 dark:text-slate-400">
-                Payment
+                Update Profile
               </div>
             </div>
           </div>
-          {step === 1 ? <AccountUpdate/> : step === 2 ? <CreateGoal/> : step === 3 ? <TAndC/> : <FirstPayment/>}
+          {step === 1 ? <CreateGoal/> : step === 2 ? <TAndC/> : step === 3 ? <FirstPayment/> : <AccountUpdate/>}
           
             
         </div>

@@ -1,5 +1,4 @@
 import {createSlice } from '@reduxjs/toolkit'
-import { object } from 'prop-types'
 
 const initialState = {
     user: {},
@@ -21,7 +20,7 @@ const userSlice = createSlice({
         removeUser: (state) => {
             state.user = {}
         },
-        updateUser:(state, action) => {
+        updatesUser:(state, action) => {
             state.user = Object.assign(state.user, action.payload)
         },
         updatePhoto:(state, action) => {
@@ -43,4 +42,4 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const {saveUser, removeUser, updatePhoto, updateUser, saveGoal, saveProperty, saveSignature, updateIdUpload} = userSlice.actions
+export const {saveUser, removeUser, updatePhoto, updatesUser, saveGoal, saveProperty, saveSignature, updateIdUpload} = userSlice.actions

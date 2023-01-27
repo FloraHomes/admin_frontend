@@ -10,14 +10,11 @@ import {
   DropdownHeader,
   DropdownDivider,
 } from "@/base-components";
-import logoUrl from "@/assets/images/logo.svg";
-import { faker as $f } from "@/utils";
-import * as $_ from "lodash";
-import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import profilePlaceholder from "../../assets/images/placeholders/default.png";
 import { setRefferalLinkModal } from "../../redux/slices/modalSlice";
 import storeInit from "../../redux/store";
+import { updateStep } from "../../redux/slices/ownEarnerSlice";
 
 function Main(props) {
   const dispatch = useDispatch();
@@ -25,7 +22,7 @@ function Main(props) {
 
   const signOut = (e) => {
     e.preventDefault();
-    // dispatch(removeUser());
+    dispatch(updateStep(1));
     storeInit.persistor.purge();
     navigate("/");
   };
