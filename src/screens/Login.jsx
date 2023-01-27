@@ -1,6 +1,5 @@
 import DarkModeSwitcher from "@/components/dark-mode-switcher/Main";
 import dom from "@left4code/tw-starter/dist/js/dom";
-import illustrationUrl from "@/assets/images/illustration.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classnames from "classnames";
@@ -25,7 +24,6 @@ const Login = () => {
   const onSubmit = async(values, {resetForm}) => {
     setIsLoading(true)
     const res = (await signin(values?.email, values?.password))?.data
-  console.log(res);
    
     if(res) {
       if(res?.status) {

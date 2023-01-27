@@ -1,9 +1,5 @@
 import {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    Lucide,
-    Tippy,
-  } from "@/base-components";
 import { setRefferalLinkModal } from '../redux/slices/modalSlice';
 import { fetchReferrals } from '../redux/slices/referralSlice';
 import { amountFormat, dateInWord, simpleDateString } from '../utils/format';

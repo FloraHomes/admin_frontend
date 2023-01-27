@@ -1,10 +1,9 @@
 import DarkModeSwitcher from "@/components/dark-mode-switcher/Main";
 import dom from "@left4code/tw-starter/dist/js/dom";
-import illustrationUrl from "@/assets/images/illustration.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import classnames from "classnames";
-import { signin, signUp } from "../services/authService";
+import {signUp } from "../services/authService";
 import { useFormik } from "formik";
 import { signupSchema } from "../utils/formValidationSchema";
 import { LoadingIcon } from "@/base-components";
