@@ -3,13 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCustomerPayments } from "../redux/slices/paymentSlice";
 import { amountFormat, dateInWord } from "../utils/format";
 import { setPaymentModal } from "../redux/slices/modalSlice";
-import TableLoader from "../components/loaders/TableLoader";
+import TableLoader from "../components/loaders/TableLoader"; 
+import { fetchProperty } from "../redux/slices/propertySlice";
 
 const Payments = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state?.user?.user);
+  console.log(user);
+ 
   useEffect(() => {
     dispatch(fetchCustomerPayments());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchProperty({id: user?.property}))
   }, []);
 
   const data = useSelector((state) => state.payments);

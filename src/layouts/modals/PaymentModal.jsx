@@ -14,8 +14,8 @@ import { fetchProperty } from "../../redux/slices/propertySlice";
 
 const PaymentModal = () => {
   const [units, setunits] = useState("");
-  const user = useSelector((state) => state?.user?.user);
   const modal = useSelector((state) => state.modal?.paymentModal);
+  const user = useSelector((state) => state?.user?.user);
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -27,16 +27,8 @@ const PaymentModal = () => {
   };
 
 
-
-  useEffect(() => {
-    dispatch(fetchProperty({id: user?.property}))
-  }, []);
-
-
   const data = useSelector((state) => state.property);
   const property = data?.property?.data;
-
-  console.log(data);
 
 
   const config = {
@@ -82,8 +74,6 @@ const PaymentModal = () => {
     );
     res?.status && dispatch(fetchCustomerPayments());
   };
-
-  console.log(data)
 
 
   return (
