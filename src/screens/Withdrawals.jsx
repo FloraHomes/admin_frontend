@@ -50,7 +50,7 @@ const Withdrawals = () => {
                     </div>
                     <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
                     
-                    &#8358;{amountFormat(totalReward)}
+                    {totalReward > 0 ? `\u20A6${amountFormat(totalReward)}` : "Nil"} 
                     </div>
                   </div>
                   <a
@@ -77,7 +77,7 @@ const Withdrawals = () => {
                     </div>
                     <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
                      
-                      &#8358;{amountFormat(propertyShare)}
+                    {propertyShare > 1 ? `\u20A6${amountFormat(propertyShare)}` : "Nil"} 
                     </div>
                   </div>
                   <a
@@ -103,7 +103,7 @@ const Withdrawals = () => {
                       </Tippy>
                     </div>
                     <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
-                    &#8358;{amountFormat(cashWallet)}
+                    {cashWallet > 1 ? `\u20A6${amountFormat(cashWallet)}` : "Nil"} 
                     </div>
                   </div>
                   <Tippy
@@ -141,7 +141,7 @@ const Withdrawals = () => {
                     </div>
                     <div className="text-white relative text-2xl font-medium leading-5 pl-4 mt-3.5">
                  
-                      &#8358;{amountFormat(totalWithdrawal)}
+                    {totalWithdrawal > 1 ? `\u20A6${amountFormat(totalWithdrawal)}` : "Nil"} 
                     </div>
                   </div>
                   <a
@@ -160,11 +160,11 @@ const Withdrawals = () => {
               <thead>
                 <tr>
                 
-                  <th className="whitespace-nowrap">Request Date</th>
+                  <th className="whitespace-nowrap" style={{minWidth: "150px"}}>Request Date</th>
                   <th className="whitespace-nowrap">
                     Amount
                   </th>
-                  <th className="whitespace-nowrap">Payment Date</th>
+                  <th className="whitespace-nowrap" style={{minWidth: "150px"}}>Payment Date</th>
                   <th className="whitespace-nowrap">Comment</th>
                 </tr>
               </thead>

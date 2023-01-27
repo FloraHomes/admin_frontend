@@ -202,7 +202,7 @@ const OwnEarnerDashboard = () => {
                         }
                         className="btn py-1 px-2 border-white text-white dark:text-slate-300 dark:bg-darkmode-400 dark:border-darkmode-400"
                       >
-                        Copy Link
+                        Get Link
                       </button>
                     </div>
                   </div>

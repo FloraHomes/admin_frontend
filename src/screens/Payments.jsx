@@ -40,7 +40,7 @@ const Payments = () => {
           <table className="table table-report -mt-2">
             <thead>
               <tr>
-                <th className="text-center whitespace-nowrap">Date</th>
+                <th className="text-center whitespace-nowrap" style={{minWidth: "150px"}}>Date</th>
                 <th className="text-center whitespace-nowrap">Unit Price</th>
                 <th className="text-center whitespace-nowrap">
                   Purchased Unit

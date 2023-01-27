@@ -35,7 +35,7 @@ const Referrals = () => {
               <thead>
                 <tr>
                   {/* <th className="text-center whitespace-nowrap">Date</th> */}
-                  <th className="whitespace-nowrap">Photo</th>
+                  <th className="whitespace-nowrap" style={{minWidth: "150px"}}>Date</th>
                   <th className="whitespace-nowrap">
                     Name
                   </th>
