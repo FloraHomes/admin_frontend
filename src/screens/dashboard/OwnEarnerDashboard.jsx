@@ -63,8 +63,8 @@ const OwnEarnerDashboard = () => {
                         icon="CreditCard"
                         className="report-box__icon text-primary"
                       />
-                    </div>
-                    <div className="text-3xl font-medium leading-8 mt-6">
+                    </div> 
+                    <div className="text-2xl font-medium leading-8 mt-6">
                       &#8358;{amountFormat(paySummary?.amount)}
                     </div>
                     <div className="text-base text-slate-500 mt-1">
@@ -82,7 +82,7 @@ const OwnEarnerDashboard = () => {
                         className="report-box__icon text-pending"
                       />
                     </div>
-                    <div className="text-3xl font-medium leading-8 mt-6">
+                    <div className="text-2xl font-medium leading-8 mt-6">
                       {goal?.goalUnits} Units
                     </div>
                     <div className="text-base text-slate-500 mt-1">Goal</div>
@@ -98,7 +98,7 @@ const OwnEarnerDashboard = () => {
                         className="report-box__icon text-warning"
                       />
                     </div>
-                    <div className="text-3xl font-medium leading-8 mt-6">
+                    <div className="text-2xl font-medium leading-8 mt-6">
                       {paySummary?.purchasedUnits} Units
                     </div>
                     <div className="text-base text-slate-500 mt-1">
@@ -117,7 +117,7 @@ const OwnEarnerDashboard = () => {
                         className="report-box__icon text-success"
                       />
                     </div>
-                    <div className="text-3xl font-medium leading-8 mt-6">
+                    <div className="text-2xl font-medium leading-8 mt-6">
                       {referralSummary?.referralCount[0]?.noOfReferrals > 0
                         ? referralSummary?.referralCount[0]?.noOfReferrals
                         : "No"}
