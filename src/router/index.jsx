@@ -9,8 +9,8 @@ import Goal from '../screens/Goal';
 import Referrals from '../screens/Referrals';
 import { useSelector } from 'react-redux';
 import AdminDashboard from '../screens/dashboard/AdminDashboard';
-import Blog from '../screens/blog/Blog';
 import Withdrawals from '../screens/Withdrawals';
+import NewProperty from '../screens/NewProperty';
 
 const Router = () => {
   const role = useSelector((state) => state?.user?.user?.role);
@@ -25,6 +25,7 @@ const Router = () => {
       <Route  element={<ProtectedRoute path="goal" roles={["ownEarner"]}/>} ><Route path="goal" element={<Goal/>} /></Route>
       <Route  element={<ProtectedRoute path="referrals" roles={["ownEarner"]}/>}><Route path="referrals" element={<Referrals/>} /></Route>
       <Route  element={<ProtectedRoute path="withrawals" roles={["ownEarner"]}/>}><Route path="withrawals" element={<Withdrawals/>} /></Route>
+      <Route  element={<ProtectedRoute path="new-property" roles={["admin"]}/>}><Route path="new-property" element={<NewProperty/>} /></Route>
     </Routes>
   );
 };

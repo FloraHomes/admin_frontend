@@ -56,8 +56,8 @@ const AccountUpdate = () => {
 
     dispatch(setLoader({status: true}))
 
-  const photoUrl = (await uploadFile(({folderName: "Photos", width: 300, b64: photo,})))?.data?.data?.secure_url;
-  const idUploadUrl = (await uploadFile(({folderName: "IdUploads", width: 300, b64: idUpload,})))?.data?.data?.secure_url;
+  const photoUrl = (await uploadFile(({folderName: "Photos", b64: photo,})))?.data?.data?.secure_url;
+  const idUploadUrl = (await uploadFile(({folderName: "IdUploads", b64: idUpload,})))?.data?.data?.secure_url;
   let payload = {...values, photoUrl, idUploadUrl, onboardingLevel: "completed"}
 
   const updatedUser = (await updateUser(payload))?.data

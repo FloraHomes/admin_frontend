@@ -82,10 +82,10 @@ function Main(props) {
                 {/* <DropdownItem className="hover:bg-white/5">
                   <Lucide icon="User" className="w-4 h-4 mr-2" /> Profile
                 </DropdownItem> */}
-                <DropdownItem className="hover:bg-white/5">
+                {/* <DropdownItem className="hover:bg-white/5">
                   <Lucide icon="Lock" className="w-4 h-4 mr-2" /> Change
                   Password
-                </DropdownItem>
+                </DropdownItem> */}
                 {user?.role === "ownEarner" && (
                   <DropdownItem
                     className="hover:bg-white/5"

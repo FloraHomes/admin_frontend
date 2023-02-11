@@ -13,8 +13,8 @@ import ClassicEditor from "./ckeditor/ClassicEditor";
 // import DocumentEditor from './ckeditor/DocumentEditor'
 // import InlineEditor from './ckeditor/InlineEditor'
 import Dropzone from "./dropzone/Main";
-import FullCalendar from "./calendar/Main";
-import FullCalendarDraggable from "./calendar/Draggable";
+// import FullCalendar from "./calendar/Main";
+// import FullCalendarDraggable from "./calendar/Draggable";
 import Notification from "./notification/Main";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "./modal";
 import {
@@ -58,8 +58,8 @@ export {
   // BalloonEditor,
   // DocumentEditor,
   // InlineEditor,
-  FullCalendar,
-  FullCalendarDraggable,
+  // FullCalendar,
+  // FullCalendarDraggable,
   Notification,
   Modal,
   ModalHeader,

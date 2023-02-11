@@ -6,7 +6,7 @@ import OwnEarnerSetup from "../screens/OwnEarnerSetup";
 
 const ProtectedRoute = ({roles}) => {
   const user = useSelector((state) => state?.user?.user);
-  console.log(user);
+
   if (!user?.token) {
     return <Navigate to="/" replace />;
   }

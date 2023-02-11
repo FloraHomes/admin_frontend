@@ -1,10 +1,11 @@
+import { FullCalendar } from "@/base-components";
 import "@fullcalendar/core/vdom";
 import interactionPlugin from "@fullcalendar/interaction";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import dom from "@left4code/tw-starter/dist/js/dom";
-import { FullCalendar } from "@/base-components";
+
 
 function Main() {
   const options = {

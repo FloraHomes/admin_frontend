@@ -8,3 +8,7 @@ export const ownEarnerProperties = async() => {
 export const propertyById = async(id) => {
     return await httpRequest(controllers.property + `/${id}`)
 }
+
+export const saveProperty = async(payload) => {
+    return await httpRequest(controllers.property + "/save", "post", payload)
+}

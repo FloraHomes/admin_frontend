@@ -429,6 +429,17 @@
     "@ckeditor/ckeditor5-widget" "^29.2.0"
     "lodash-es" "^4.17.11"
 
+"@ckeditor/ckeditor5-clipboard@^36.0.1":
+  "integrity" "sha512-CFh5oO29dUXwsUf/BPM8g5l8MV3hiG27/h6fpC1qRUTAVXDAj43j+cfYYs8MwNi3hv0c/1KyT1bLySqQ/LZctw=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-clipboard/-/ckeditor5-clipboard-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+    "@ckeditor/ckeditor5-widget" "^36.0.1"
+    "lodash-es" "^4.17.11"
+
 "@ckeditor/ckeditor5-cloud-services@^29.2.0":
   "integrity" "sha512-6KQv2UyhWBpVZKkWwi1CPpa9r9cMEEyLgqSfFtJMlmK7FApcHpNqtuGQbpLjOWXcN6AQuOM5l48iBhbS6xbMEQ=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-cloud-services/-/ckeditor5-cloud-services-29.2.0.tgz"
@@ -444,6 +455,15 @@
     "@ckeditor/ckeditor5-engine" "^29.2.0"
     "@ckeditor/ckeditor5-ui" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
+    "lodash-es" "^4.17.15"
+
+"@ckeditor/ckeditor5-core@^36.0.1":
+  "integrity" "sha512-50O+DYXtaf4dMOn+3mGUvfYiE2qsCgVn114WQj7Tj3pZl5w+pAIv/2P+9cBB2Kb7QxgPZqZ7bvsi9wHqIJ6KCw=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-core/-/ckeditor5-core-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
     "lodash-es" "^4.17.15"
 
 "@ckeditor/ckeditor5-easy-image@^29.2.0":
@@ -493,6 +513,14 @@
     "@ckeditor/ckeditor5-utils" "^29.2.0"
     "lodash-es" "^4.17.15"
 
+"@ckeditor/ckeditor5-engine@^36.0.1":
+  "integrity" "sha512-Ze2omTguUggwiL9vvLvPk+QpjEBbIOPS1Hi/ROYlsW8QSdnPbSTv+6rCIYThqJMFeonxLZWV5XwbcqpgSAs0MA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+    "lodash-es" "^4.17.15"
+
 "@ckeditor/ckeditor5-enter@^29.2.0":
   "integrity" "sha512-SSzUZ6iTI1Tymgvol/3HEdsOoMnu6GRl0wdBUizMBqP6SkCLU6t+Zdayz/aRNnU9slLXl0pJyz/aD9jR0N6gKg=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-enter/-/ckeditor5-enter-29.2.0.tgz"
@@ -501,6 +529,14 @@
     "@ckeditor/ckeditor5-core" "^29.2.0"
     "@ckeditor/ckeditor5-engine" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
+
+"@ckeditor/ckeditor5-enter@^36.0.1":
+  "integrity" "sha512-FHZ43bltDGFyihfBOTwBOgsS2mMU2ATR9xxFEKlDP+8+P1bq4e0YkC3t4PuwtHIZMvNHiFxqvmFtA2eznGS7sQ=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-enter/-/ckeditor5-enter-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
 
 "@ckeditor/ckeditor5-essentials@^29.2.0":
   "integrity" "sha512-uYuJEMV1ox7KnBUPxsUNNvM96EIXbj3CtU2g9FyPDGHxkjMiAMhluVAUUDHYgC0dbZtGUXM2/xx1u0Ux54K5MA=="
@@ -530,6 +566,15 @@
   dependencies:
     "@ckeditor/ckeditor5-ui" "^29.2.0"
     "ckeditor5" "^29.2.0"
+    "lodash-es" "^4.17.15"
+
+"@ckeditor/ckeditor5-image@^36.0.1":
+  "integrity" "sha512-HElSvvBXL4kmwtwrAw28oIuJN1gXMr0kOYnR+sLkJGlfeymOQ4RKEqW3vOPMmN6s2RMJVoNkpytPbhzalFn3Sg=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-image/-/ckeditor5-image-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "ckeditor5" "^36.0.1"
     "lodash-es" "^4.17.15"
 
 "@ckeditor/ckeditor5-indent@^29.2.0":
@@ -572,12 +617,28 @@
     "@ckeditor/ckeditor5-ui" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
 
+"@ckeditor/ckeditor5-paragraph@^36.0.1":
+  "integrity" "sha512-NF1PH9WVfY81vkohj6GV1W/u1ogbZnfy60wrDy8Qp3iaFK1LJBsKNz3q1tf0WkBghaX/MUjR9E06l/OrTtaTZw=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-paragraph/-/ckeditor5-paragraph-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+
 "@ckeditor/ckeditor5-paste-from-office@^29.2.0":
   "integrity" "sha512-c5WQaU/Tdi0cYb+8e6B9SYsOol8pklxL7vUbe1BgknbcIHEdJ+teV49DSIbwi2E4TkyDk1f4Sj1eo+00wOLVHQ=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-paste-from-office/-/ckeditor5-paste-from-office-29.2.0.tgz"
   "version" "29.2.0"
   dependencies:
     "ckeditor5" "^29.2.0"
+
+"@ckeditor/ckeditor5-react@^5.0.6":
+  "integrity" "sha512-clfJWCsjYmpLLEaE3094icBOgHY8c+kreHRrZKyhhWeQl7w/FYCln/x/AACwzU0oPrvtRCJRBuZC3C5sC02GPA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-react/-/ckeditor5-react-5.0.6.tgz"
+  "version" "5.0.6"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "@ckeditor/ckeditor5-select-all@^29.2.0":
   "integrity" "sha512-GqUQKnNcuT2yQPiZMvOhX4k6bpFsSpUU8wPIt5m991fzO0KcCV42fYFElse9/kajiTn7X4RfybQxIw0abS2ttw=="
@@ -587,6 +648,15 @@
     "@ckeditor/ckeditor5-core" "^29.2.0"
     "@ckeditor/ckeditor5-ui" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
+
+"@ckeditor/ckeditor5-select-all@^36.0.1":
+  "integrity" "sha512-8rPxcenTAoqXy1gleZvfsc7VD0IltPFq8R+blD4JL+sSMMDUtKhPuok4TA9h6Yh0nP6LfRK2fBUKIWH3xRPABg=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-select-all/-/ckeditor5-select-all-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
 
 "@ckeditor/ckeditor5-table@^29.2.0":
   "integrity" "sha512-Cx6KA6Mz/47Qm/6U7o3K/POxh1BCzrDTHmLrp8JeQvDZRF3bL0vrRN9ftEWMjauTsLAFyJQUx5G2i188mcyuiw=="
@@ -606,6 +676,16 @@
     "@ckeditor/ckeditor5-utils" "^29.2.0"
     "lodash-es" "^4.17.15"
 
+"@ckeditor/ckeditor5-typing@^36.0.1":
+  "integrity" "sha512-NwXQxNxf/LLANiiteEVaLr1ZzvJd7y6+O5a6x0Tv9Uuheu80aw2Axm3icneODt05G/XT+iJmCHzUYdEiCsHUaw=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-typing/-/ckeditor5-typing-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+    "lodash-es" "^4.17.15"
+
 "@ckeditor/ckeditor5-ui@^29.2.0":
   "integrity" "sha512-jxoXDF7QwFOG7OCifYX2yrNb2PNsBhrMnBSxtWGWjMS9c39QXTUBIuzTXcYPOAOVCxzTpZ+yNxuSmJ9eHe8jMg=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-29.2.0.tgz"
@@ -613,6 +693,15 @@
   dependencies:
     "@ckeditor/ckeditor5-utils" "^29.2.0"
     "ckeditor5" "^29.2.0"
+    "lodash-es" "^4.17.15"
+
+"@ckeditor/ckeditor5-ui@^36.0.1":
+  "integrity" "sha512-wPqAdXUZnEAD3XPvS5vEGU2kxzTQah3wne3B1esdlbJ7dSLZDdx8r1dyKyp3/WCpCT8G+PqGvSUrlnqcy7WI5A=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
     "lodash-es" "^4.17.15"
 
 "@ckeditor/ckeditor5-undo@^29.2.0":
@@ -624,6 +713,15 @@
     "@ckeditor/ckeditor5-engine" "^29.2.0"
     "@ckeditor/ckeditor5-ui" "^29.2.0"
 
+"@ckeditor/ckeditor5-undo@^36.0.1":
+  "integrity" "sha512-TBm6TAnur59f5hqlgUZ89NV3cPQw0xqqpSuVMFrvFruPmPiIay2E34Mapb5KRXr83AEPhNN8GAE2YM7HmMqKrQ=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-undo/-/ckeditor5-undo-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+
 "@ckeditor/ckeditor5-upload@^29.2.0":
   "integrity" "sha512-w7J1a3HaveOyBZHO4V/XODs2EsJNJkFJS75I3A3P82tBPb1T5gHOtZADQ4SI9kFnLo1CzLq6jU0YeSCwXETy3w=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-29.2.0.tgz"
@@ -633,10 +731,26 @@
     "@ckeditor/ckeditor5-ui" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
 
+"@ckeditor/ckeditor5-upload@^36.0.1":
+  "integrity" "sha512-932vnvO++SzfZ6EpNkOj6PPKN6vVgn5aW3gu0c1D51cF9KkCFiaMhBDsOzDRVvq/bbnDqUQ9v3j1cNo2UlC8oA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+
 "@ckeditor/ckeditor5-utils@^29.2.0":
   "integrity" "sha512-aTbahSk2W7HTc4g9yggWCYpLcHkJ60mffFAXzt8TPeSDJ3obW/9DoDPz5gwLnCArmmuYFDJf9UOaTpEO6GwwAQ=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-29.2.0.tgz"
   "version" "29.2.0"
+  dependencies:
+    "lodash-es" "^4.17.15"
+
+"@ckeditor/ckeditor5-utils@^36.0.1":
+  "integrity" "sha512-TW/YRb0OQe88IyqRoq2xS02iXOG82NQybzMuFDnGyCaFV0hA/9ysOyWwFpxDLcPDhDgVJZIxuwvFaek9x+uCMA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-36.0.1.tgz"
+  "version" "36.0.1"
   dependencies:
     "lodash-es" "^4.17.15"
 
@@ -653,59 +767,23 @@
     "@ckeditor/ckeditor5-utils" "^29.2.0"
     "lodash-es" "^4.17.15"
 
+"@ckeditor/ckeditor5-widget@^36.0.1":
+  "integrity" "sha512-on92cCRYLWTfwrpnFi5z4FY7NDhY+X+p6yuYStnB9d9jM3FJi3/7y2q9ojr8fSMot4pQsXCiFXzaF6yez+77wA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-widget/-/ckeditor5-widget-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-enter" "^36.0.1"
+    "@ckeditor/ckeditor5-typing" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+    "lodash-es" "^4.17.15"
+
 "@csstools/sass-import-resolve@^1.0.0":
   "integrity" "sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA=="
   "resolved" "https://registry.npmjs.org/@csstools/sass-import-resolve/-/sass-import-resolve-1.0.0.tgz"
   "version" "1.0.0"
-
-"@fullcalendar/common@~5.11.3":
-  "integrity" "sha512-welVwyfQOXQQGfDwBMSfYEPbiO1cPfUD+C7jd3ZoweJR+dSO11ddFugxIQ7dGfABAGZ63oq/+LW9FsmAJezVNg=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/common/-/common-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "tslib" "^2.1.0"
-
-"@fullcalendar/core@^5.5.1":
-  "integrity" "sha512-YUFxCvVJytUwFeXCx4J17kFMM7Ixwn9zBjVRw5NM2bMwgR6VAhSnlZc6yNQSOIy7Hj2TF0vDkO/4JNlTvxyAXw=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/core/-/core-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "preact" "^10.0.5"
-    "tslib" "^2.1.0"
-
-"@fullcalendar/daygrid@^5.5.0", "@fullcalendar/daygrid@~5.11.3":
-  "integrity" "sha512-PCK0y80DRNCzWuC5lGpIWqCgKDvql1ah7rXql5lu+Gn2EeFj15ZQ8diMFjtNIQucEmFaNOXnR05Pgcry1n6Shg=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "tslib" "^2.1.0"
-
-"@fullcalendar/interaction@^5.5.0":
-  "integrity" "sha512-L955wkDjza62K96ndstvYs2Fd4V0kayTDpqW8W7huFG3Ox8MutpLqKAa2SCaTvcNIlWS4oexGQRiQAaJG7u47A=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "tslib" "^2.1.0"
-
-"@fullcalendar/list@^5.5.0":
-  "integrity" "sha512-6m9rJPzB5XfJZg+MlgVpha1cI3NUDeyV3GOmojJWZuti05NfDP4f0lzFUul8W7m1DQcjGS2UPRNE8HouA3guEA=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/list/-/list-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "tslib" "^2.1.0"
-
-"@fullcalendar/timegrid@^5.5.1":
-  "integrity" "sha512-SjIj2ZQ7nTyL1RxZkCPvNbuUQ0xHT+gfYJdUL3FT4bPjPJCxWtQ2CL8hxaeNmVozYYuy0yrGTW5Oup2+9IplbA=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-5.11.3.tgz"
-  "version" "5.11.3"
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "@fullcalendar/daygrid" "~5.11.3"
-    "tslib" "^2.1.0"
 
 "@googlemaps/js-api-loader@^1.11.4":
   "integrity" "sha512-AsnEgNsB7S/VdrHGEQUaUM2e5tmjFGKBAfzR/AqO8O7TPq/jQGvoRw5liPBw4EMF38RDsHmKDV89q/X+qiUREQ=="
@@ -1074,6 +1152,24 @@
     "@ckeditor/ckeditor5-upload" "^29.2.0"
     "@ckeditor/ckeditor5-utils" "^29.2.0"
     "@ckeditor/ckeditor5-widget" "^29.2.0"
+
+"ckeditor5@^36.0.1":
+  "integrity" "sha512-9zKX7WIRKSDviM0s41VvW8JtDiRtNrhwrzYj4XCjGpZyIXsUKttdJYHIP5iP1MdfZU/hCvpgSUn2fmRPxFbg+Q=="
+  "resolved" "https://registry.npmjs.org/ckeditor5/-/ckeditor5-36.0.1.tgz"
+  "version" "36.0.1"
+  dependencies:
+    "@ckeditor/ckeditor5-clipboard" "^36.0.1"
+    "@ckeditor/ckeditor5-core" "^36.0.1"
+    "@ckeditor/ckeditor5-engine" "^36.0.1"
+    "@ckeditor/ckeditor5-enter" "^36.0.1"
+    "@ckeditor/ckeditor5-paragraph" "^36.0.1"
+    "@ckeditor/ckeditor5-select-all" "^36.0.1"
+    "@ckeditor/ckeditor5-typing" "^36.0.1"
+    "@ckeditor/ckeditor5-ui" "^36.0.1"
+    "@ckeditor/ckeditor5-undo" "^36.0.1"
+    "@ckeditor/ckeditor5-upload" "^36.0.1"
+    "@ckeditor/ckeditor5-utils" "^36.0.1"
+    "@ckeditor/ckeditor5-widget" "^36.0.1"
 
 "classnames@^2.3.1":
   "integrity" "sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw=="
@@ -1773,11 +1869,6 @@
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
 
-"preact@^10.0.5":
-  "integrity" "sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg=="
-  "resolved" "https://registry.npmjs.org/preact/-/preact-10.11.3.tgz"
-  "version" "10.11.3"
-
 "printj@~1.1.0":
   "integrity" "sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ=="
   "resolved" "https://registry.npmjs.org/printj/-/printj-1.1.2.tgz"
@@ -1920,7 +2011,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>=16.13.1", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@0.14 - 18":
+"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.0.0", "react@^16.13.1 || ^17.0.0 || ^18.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>=16.13.1", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@0.14 - 18":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -2161,11 +2252,6 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.1.0":
-  "integrity" "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.1.tgz"
-  "version" "2.4.1"
-
 "update-browserslist-db@^1.0.9":
   "integrity" "sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ=="
   "resolved" "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.0.10.tgz"
@@ -2183,6 +2269,11 @@
   "integrity" "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="
   "resolved" "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   "version" "1.0.2"
+
+"uuid@^9.0.0":
+  "integrity" "sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-9.0.0.tgz"
+  "version" "9.0.0"
 
 "vite@^2.7.2":
   "integrity" "sha512-fzMt2jK4vQ3yK56te3Kqpkaeq9DkcZfBbzHwYpobasvgYmP2SoAr6Aic05CsB4CzCZbsDv4sujX3pkEGhLabVQ=="

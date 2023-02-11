@@ -34,9 +34,9 @@ const menuData = {
         pathname: "/dashboard",
       },
       {
-        icon: "FileText",
-        title: "Blog",
-        pathname: "/blog",
+        icon: "Map",
+        title: "New Property",
+        pathname: "/new-property",
       },
     
   

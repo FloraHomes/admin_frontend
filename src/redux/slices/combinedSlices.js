@@ -9,6 +9,8 @@ import propertySlice from './propertySlice';
 import PaymentSummarySlice from './PaymentSummarySlice';
 import referralSummarySlice from './referralSummarySlice';
 import withdrawalSlice from './withdrawalSlice';
+import editorSlice from './editorSlice';
+import fileSlice from './fileSlice';
 
 
 
@@ -24,6 +26,8 @@ const combinedSlices = combineReducers({
     paymentSummary: PaymentSummarySlice,
     referralSummary: referralSummarySlice,
     withdrawals: withdrawalSlice,
+    editor: editorSlice,
+    file: fileSlice
   
   
 });
