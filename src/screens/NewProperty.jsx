@@ -18,6 +18,7 @@ import httpRequest from "../utils/httpRequest";
 import { controllers } from "../config/controllers";
 import {
   addFaq,
+  removeOtherPhoto,
   updateCaptionImage,
   updateCoverImage,
   updateOtherImages,
@@ -32,8 +33,8 @@ import { saveProperty } from "../services/propertyService";
 const NewProperty = () => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  const [propertyCategory, setPropertyCategory] = useState("");
-  const [propertyType, setPropertyType] = useState("");
+  const [propertyCategory, setPropertyCategory] = useState("0");
+  const [propertyType, setPropertyType] = useState("0");
   const [name, setName] = useState("");
   const [caption, setCaption] = useState("");
   const [title, setTitle] = useState("");
@@ -136,11 +137,11 @@ const NewProperty = () => {
       return alert("create some content for this new property")
      }
 
-     if(propertyCategory === ""){
+     if(propertyCategory === "0"){
       return alert("select property category")
      }
 
-     if(propertyType === ""){
+     if(propertyType === "0"){
       return alert("select property type")
      }
 
@@ -333,7 +334,7 @@ const NewProperty = () => {
                 onChange={setPropertyCategory}
                 className="w-full"
               >
-               
+               <option value="0">Select an Option</option>
                {propertyCategories.map((category) => (
                 <option value={category?._id}>{category?.name}</option>
                ))}
@@ -349,6 +350,7 @@ const NewProperty = () => {
                 onChange={setPropertyType}
                 className="w-full"
               >
+                <option value="0">Select an Option</option>
                 {propertyTypes.map((type) => (
                 <option value={type?._id}>{type?.name}</option>
                ))}
@@ -506,9 +508,9 @@ const NewProperty = () => {
                         >
                           <img
                             className="rounded-md "
-                            alt="Midone Tailwind HTML Admin Template"
                             src={image}
                           />
+                          <span onClick={() => dispatch(removeOtherPhoto(image))}>
                           <Tippy
                             tag="div"
                             content="Remove this image?"
@@ -516,6 +518,7 @@ const NewProperty = () => {
                           >
                             <Lucide icon="X" className="w-4 h-4" />
                           </Tippy>
+                          </span>
                         </div>
                       ))}
                     </div>

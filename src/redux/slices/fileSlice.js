@@ -2,7 +2,6 @@ import {createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     otherImages: [],
-    otherPhotos: [],
     captionImage: "",
     coverImage: "",
     faq: []
@@ -16,16 +15,16 @@ const fileSlice = createSlice({
             state.otherImages = [...state.otherImages, payload]
         },
 
+        removeOtherPhoto: (state, {payload}) => {
+            state.otherImages = state.otherImages.filter((image) => image !== payload)
+        },
+
         updateCaptionImage: (state, {payload}) => {
             state.captionImage = payload
         },
 
         updateCoverImage: (state, {payload}) => {
             state.coverImage = payload
-        },
-
-        updateOtherPhotos: (state, {payload}) => {
-            state.otherPhotos = [...state.otherPhotos, payload]
         },
 
         addFaq: (state, {payload}) => {
@@ -47,4 +46,4 @@ const fileSlice = createSlice({
 })
 
 export default fileSlice.reducer
-export const {updateOtherImages, updateCaptionImage, updateCoverImage, addFaq, updateFa, removeFa, updateOtherPhotos} = fileSlice.actions
+export const {updateOtherImages, updateCaptionImage, updateCoverImage, addFaq, updateFa, removeFa, removeOtherPhoto} = fileSlice.actions
