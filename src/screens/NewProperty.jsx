@@ -180,6 +180,7 @@ const NewProperty = () => {
       propertyType,
       area,
       currentPricePerUnit,
+      caption,
       unitsPerPlot,
       planNumber,
       photo,
